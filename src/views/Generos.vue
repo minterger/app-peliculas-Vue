@@ -2,10 +2,10 @@
   <div class="container-md">
     <h1 class="text-center my-3">Genero {{$route.params.type}} de {{$route.params.genero}}</h1>
     <div class="container text-center my-3 mb-3">
-      <button @click.prevent="goTo(`/generos/${$route.params.genero}`)" class="btn btn-primary my-1 me-2">Todos</button>
-      <button @click.prevent="goTo(`/generos/${$route.params.genero}/peliculas`)" class="btn btn-primary my-1 me-2">Peliculas</button>
-      <button @click.prevent="goTo(`/generos/${$route.params.genero}/series`)" class="btn btn-primary my-1 me-2">Series</button>   
-      <button @click.prevent="goTo(`/generos/${$route.params.genero}/animes`)" class="btn btn-primary my-1 me-2">Animes</button>      
+      <button @click.prevent="goTo(`/generos/${$route.params.genero}`)" class="btn btn-primary my-1 mx-1">Todos</button>
+      <button @click.prevent="goTo(`/generos/${$route.params.genero}/peliculas`)" class="btn btn-primary my-1 mx-1">Peliculas</button>
+      <button @click.prevent="goTo(`/generos/${$route.params.genero}/series`)" class="btn btn-primary my-1 mx-1">Series</button>   
+      <button @click.prevent="goTo(`/generos/${$route.params.genero}/animes`)" class="btn btn-primary my-1 mx-1">Animes</button>      
     </div>
     <Posters />
     <Pagination />

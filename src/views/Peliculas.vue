@@ -2,9 +2,9 @@
   <div class="container-md">
     <h1 class="text-center my-3">Peliculas {{$route.params.type}}</h1>
     <div class="container text-center mb-3 my-3">
-      <button @click.prevent="goTo('/peliculas')" class="btn btn-primary my-1 me-2">Todas</button>
-      <button @click.prevent="goTo('/peliculas/estrenos')" class="btn btn-primary my-1 me-2">Estrenos</button>
-      <button @click.prevent="goTo('/peliculas/populares')" class="btn btn-primary my-1">Populares</button>
+      <button @click.prevent="goTo('/peliculas')" class="btn btn-primary my-1 mx-1">Todas</button>
+      <button @click.prevent="goTo('/peliculas/estrenos')" class="btn btn-primary my-1 mx-1">Estrenos</button>
+      <button @click.prevent="goTo('/peliculas/populares')" class="btn btn-primary my-1 mx-1">Populares</button>
     </div>
     <Posters />
     <Pagination />
