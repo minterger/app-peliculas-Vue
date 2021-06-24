@@ -9,16 +9,16 @@
     <div class="collapse navbar-collapse" id="navbarColor02">
       <ul class="navbar-nav me-auto">
         <li class="nav-item">
-          <router-link exact-active-class="active" class="nav-link" to="/">Inicio</router-link>
+          <router-link exact-active-class="active" class="nav-link" @click="getPosterUpdated('/estrenos', 'HomeLast')" to="/">Inicio</router-link>
         </li>
         <li class="nav-item">
-          <router-link exact-active-class="active" class="nav-link" to="/peliculas">Peliculas</router-link>
+          <router-link exact-active-class="active" class="nav-link" @click="getPosterUpdated('/peliculas', 'PeliculasType')" to="/peliculas">Peliculas</router-link>
         </li>
         <li class="nav-item">
-          <router-link exact-active-class="active" class="nav-link" to="/series">Series</router-link>
+          <router-link exact-active-class="active" class="nav-link" @click="getPosterUpdated('/series', 'SeriesType')" to="/series">Series</router-link>
         </li>
         <li class="nav-item">
-          <router-link exact-active-class="active" class="nav-link" to="/animes">Animes</router-link>
+          <router-link exact-active-class="active" class="nav-link" @click="getPosterUpdated('/animes', 'AnimesType')" to="/animes">Animes</router-link>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Generos</a>
@@ -66,10 +66,15 @@ export default {
       }
     },
     getPosterGeneros(href) {
-      if (this.$route.name == 'Generos') {
+      if (this.$route.name == 'Generos' || this.$route.name == 'GenerosType') {
         this.getPosters({type: href})
       }
-    }
+    },
+    getPosterUpdated(href, type) {
+      if (this.$route.name == type) {
+        this.getPosters({type: href})
+      }
+    },
   },
   created() {
     this.getGeneros();
