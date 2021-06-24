@@ -3,7 +3,7 @@
     <h1 class="text-center mt-3 mb-2">Inicio</h1>
     <div class="container text-center my-3 mb-3">
       <button @click.prevent="goTo()" class="btn btn-primary my-1 me-2">Ultimo Año</button>
-      <button @click.prevent="goToLast()" class="btn btn-primary my-1 me-2">Subido Recientemente</button>
+      <button @click.prevent="goToLast()" class="btn btn-primary my-1">Subido Recientemente</button>
     </div>
     <Posters />
   </div>
