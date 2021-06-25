@@ -29,12 +29,21 @@ export default {
       this.getPosters({type})
     }
   },
+  computed: {
+    type() {
+      return this.$route.params.type ? this.$route.params.type : ''
+    }
+  },
   created() {
     this.getPosters({type: this.$route.path, query: this.$route.query.page})
-    document.title = `${process.env.VUE_APP_APP_TITLE} - Genero ${this.$route.params.genero}`
+    document.title = `${process.env.VUE_APP_APP_TITLE} - Genero ${this.type} de ${this.$route.params.genero}`
+    const descEl = document.querySelector('head meta[name="description"]');
+    descEl.setAttribute('content', `Ver Todas Las Peliculas de ${this.$route.params.genero}, Series, Animes, Documentales Online HD en español Latino con los mejores servidores y la cantidad minima de anuncios`)
   },
   updated() {
-    document.title = `${process.env.VUE_APP_APP_TITLE} - Genero ${this.$route.params.genero}`
+    document.title = `${process.env.VUE_APP_APP_TITLE} - Genero ${this.type} de ${this.$route.params.genero}`
+    const descEl = document.querySelector('head meta[name="description"]');
+    descEl.setAttribute('content', `Ver Todas Las Peliculas de ${this.$route.params.genero}, Series, Animes, Documentales Online HD en español Latino con los mejores servidores y la cantidad minima de anuncios`)
   }
 }
 </script>

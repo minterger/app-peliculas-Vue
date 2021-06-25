@@ -35,10 +35,14 @@ export default {
   },
   created() {
     this.getPosters({type: this.$route.path, query: this.$route.query.page})
-    document.title = `${process.env.VUE_APP_APP_TITLE} - Animes ${this.typeTitle}`
+    document.title = `${process.env.VUE_APP_APP_TITLE} - Ver Animes ${this.typeTitle} Online en HD Latino`
+    const descEl = document.querySelector('head meta[name="description"]');
+    descEl.setAttribute('content', `Ver Todas Las Animes ${this.typeTitle} Online HD en español Latino con los mejores servidores y la cantidad minima de anuncios`)
   },
   updated() {
-    document.title = `${process.env.VUE_APP_APP_TITLE} - Animes ${this.typeTitle}`
+    document.title = `${process.env.VUE_APP_APP_TITLE} - Ver Animes ${this.typeTitle} Online en HD Latino`
+    const descEl = document.querySelector('head meta[name="description"]');
+    descEl.setAttribute('content', `Ver Todas Las Animes ${this.typeTitle} Online HD en español Latino con los mejores servidores y la cantidad minima de anuncios`)
   }
 }
 </script>

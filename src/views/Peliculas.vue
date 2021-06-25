@@ -35,10 +35,14 @@ export default {
   },
   created() {
     this.getPosters({type: this.$route.path, query: this.$route.query.page})
-    document.title = `${process.env.VUE_APP_APP_TITLE} - Peliculas ${this.typeTitle}`
+    document.title = `${process.env.VUE_APP_APP_TITLE} - Ver Peliculas ${this.typeTitle} Online en HD Latino`
+    const descEl = document.querySelector('head meta[name="description"]');
+    descEl.setAttribute('content', `Ver Todas Las Peliculas ${this.typeTitle} Online HD en español Latino con los mejores servidores y la cantidad minima de anuncios`)
   },
   updated() {
-    document.title = `${process.env.VUE_APP_APP_TITLE} - Peliculas ${this.typeTitle}`
+    document.title = `${process.env.VUE_APP_APP_TITLE} - Ver Peliculas ${this.typeTitle} Online en HD Latino`
+    const descEl = document.querySelector('head meta[name="description"]');
+    descEl.setAttribute('content', `Ver Todas Las Peliculas ${this.typeTitle} Online HD en español Latino con los mejores servidores y la cantidad minima de anuncios`)
   }
 }
 </script>

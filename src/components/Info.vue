@@ -49,7 +49,9 @@ export default {
     }),
   },
   updated() {
-    document.title = `${process.env.VUE_APP_APP_TITLE} - ${this.info.title}`
+    document.title = `Ver ${this.info.title} Online Latino HD - ${process.env.VUE_APP_APP_TITLE}`
+    const descEl = document.querySelector('head meta[name="description"]');
+    descEl.setAttribute('content', `Ver ${this.info.title}: ${this.info.descripcion}`)
   }
 };
 </script>

@@ -38,6 +38,8 @@ export default {
       this.searchPoster({type: '/search'});
     }
     document.title = `${process.env.VUE_APP_APP_TITLE} - Ver Peliculas, Series y Animes Online en Full HD`
+    const descEl = document.querySelector('head meta[name="description"]');
+    descEl.setAttribute('content', 'PelisLatino - Peliculas, Series y Animes En español latino online en HD actualizadas con los mejores servidores, entra y encuentra lo que buscas')
   }
 }
 </script>
