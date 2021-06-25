@@ -33,7 +33,6 @@ export default {
   methods: {
     ...mapActions({'getPosters': 'todo/getPosters'}),
     goTo(type) {
-      this.$router.push(type)
       this.getPosters({type})
     }
   },
