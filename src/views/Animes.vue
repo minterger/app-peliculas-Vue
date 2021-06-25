@@ -1,6 +1,6 @@
 <template>
   <div class="container-md">
-    <h1 class="text-center my-3">Animes {{$route.params.type}}</h1>
+    <h1 class="text-center my-3">Animes {{type}}</h1>
     <div class="container text-center mb-3 my-3">
       <button @click.prevent="goTo('/animes')" class="btn btn-primary my-1 mx-1">Todas</button>
       <button @click.prevent="goTo('/animes/estrenos')" class="btn btn-primary my-1 mx-1">Estrenos</button>
@@ -29,20 +29,20 @@ export default {
     }
   },
   computed: {
-    typeTitle() {
-      return this.$route.params.type ? this.$route.params.type : ''
+    type() {
+      return this.$route.params.type ? this.$route.params.type.charAt(0).toUpperCase() + this.$route.params.type.slice(1) : ''
     }
   },
   created() {
     this.getPosters({type: this.$route.path, query: this.$route.query.page})
-    document.title = `${process.env.VUE_APP_APP_TITLE} - Ver Animes ${this.typeTitle} Online en HD Latino`
+    document.title = `${process.env.VUE_APP_APP_TITLE} - Ver Animes ${this.type} Online en HD Latino`
     const descEl = document.querySelector('head meta[name="description"]');
-    descEl.setAttribute('content', `Ver Todos Los Animes ${this.typeTitle} Online HD en español Latino con los mejores servidores y la mejor calidad de streaming`)
+    descEl.setAttribute('content', `Ver Todos Los Animes ${this.type} Online HD en español Latino con los mejores servidores y la mejor calidad de streaming`)
   },
   updated() {
-    document.title = `${process.env.VUE_APP_APP_TITLE} - Ver Animes ${this.typeTitle} Online en HD Latino`
+    document.title = `${process.env.VUE_APP_APP_TITLE} - Ver Animes ${this.type} Online en HD Latino`
     const descEl = document.querySelector('head meta[name="description"]');
-    descEl.setAttribute('content', `Ver Todos Los Animes ${this.typeTitle} Online HD en español Latino con los mejores servidores y la mejor calidad de streaming`)
+    descEl.setAttribute('content', `Ver Todos Los Animes ${this.type} Online HD en español Latino con los mejores servidores y la mejor calidad de streaming`)
   }
 }
 </script>

@@ -80,6 +80,16 @@ const routes = [
     path: '/generos/:genero/:type',
     name: 'GenerosType',
     component: () => import('../views/Generos.vue')
+  },
+  {
+    path: '/year/:year',
+    name: 'Years',
+    component: () => import('../views/Years.vue')
+  },
+  {
+    path: '/year/:year/:type',
+    name: 'YearsType',
+    component: () => import('../views/Years.vue')
   }
 ]
 

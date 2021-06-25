@@ -22,8 +22,14 @@
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Generos</a>
-          <div class="dropdown-menu mb-2">
+          <div class="dropdown-menu mb-2 limit">
             <router-link class="dropdown-item" v-for="genero in generos" :key="genero.name" @click="getPosterGeneros(genero.href)" :to="genero.href">{{genero.name}}</router-link>
+          </div>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Años</a>
+          <div class="dropdown-menu mb-2 limit">
+            <router-link class="dropdown-item" v-for="year in years" :key="year.name" @click="getPosterYears(year.href)" :to="year.href">{{year.name}}</router-link>
           </div>
         </li>
       </ul>
@@ -47,7 +53,10 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({'generos': 'navbar/generos'}),
+    ...mapGetters({
+      'generos': 'navbar/generos',
+      'years': 'navbar/years'
+    }),
     searchQ() {
       return this.search.replace(/\s/g, '+');
     }
@@ -55,6 +64,7 @@ export default {
   methods: {
     ...mapActions({
       'getGeneros': 'navbar/getGeneros',
+      'getYears': 'navbar/getYears',
       'searching': 'navbar/searching',
       'searchPoster': 'todo/searchPoster',
       'getPosters': 'todo/getPosters'
@@ -70,6 +80,11 @@ export default {
         this.getPosters({type: href})
       }
     },
+    getPosterYears(href) {
+      if (this.$route.name == 'Years' || this.$route.name == 'YearsType') {
+        this.getPosters({type: href})
+      }
+    },
     getPosterUpdated(href, type) {
       if (this.$route.name == type) {
         this.getPosters({type: href})
@@ -78,6 +93,7 @@ export default {
   },
   created() {
     this.getGeneros();
+    this.getYears();
   }
 }
 </script>
@@ -85,5 +101,10 @@ export default {
 <style scoped>
   .bx {
     transform: scale(1.3);
+  }
+
+  .limit {
+    max-height: 400px;
+    overflow-y: auto;
   }
 </style>
