@@ -2,10 +2,18 @@
   <div class="container-md">
     <h1 class="text-center my-3">Genero {{type}} de {{genero}}</h1>
     <div class="container text-center my-3 mb-3">
-      <button @click.prevent="goTo(`/generos/${$route.params.genero}`)" class="btn btn-primary my-1 mx-1">Todos</button>
-      <button @click.prevent="goTo(`/generos/${$route.params.genero}/peliculas`)" class="btn btn-primary my-1 mx-1">Peliculas</button>
-      <button @click.prevent="goTo(`/generos/${$route.params.genero}/series`)" class="btn btn-primary my-1 mx-1">Series</button>   
-      <button @click.prevent="goTo(`/generos/${$route.params.genero}/animes`)" class="btn btn-primary my-1 mx-1">Animes</button>      
+      <router-link @click="goTo(`/generos/${$route.params.genero}`)"
+        :to="{name: 'Generos', params: { genero: $route.params.genero }}"
+        class="btn btn-primary my-1 mx-1">Todos</router-link>
+      <router-link @click="goTo(`/generos/${$route.params.genero}/peliculas`)"
+        :to="{name: 'GenerosType', params: { genero: $route.params.genero, type: 'peliculas' }}"
+        class="btn btn-primary my-1 mx-1">Peliculas</router-link>
+      <router-link @click="goTo(`/generos/${$route.params.genero}/series`)"
+        :to="{name: 'GenerosType', params: { genero: $route.params.genero, type: 'series' }}"
+        class="btn btn-primary my-1 mx-1">Series</router-link>   
+      <router-link @click="goTo(`/generos/${$route.params.genero}/animes`)"
+        :to="{name: 'GenerosType', params: { genero: $route.params.genero, type: 'animes' }}"
+        class="btn btn-primary my-1 mx-1">Animes</router-link>      
     </div>
     <Posters />
     <Pagination />

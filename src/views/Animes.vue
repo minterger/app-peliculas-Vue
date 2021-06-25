@@ -2,9 +2,15 @@
   <div class="container-md">
     <h1 class="text-center my-3">Animes {{type}}</h1>
     <div class="container text-center mb-3 my-3">
-      <button @click.prevent="goTo('/animes')" class="btn btn-primary my-1 mx-1">Todas</button>
-      <button @click.prevent="goTo('/animes/estrenos')" class="btn btn-primary my-1 mx-1">Estrenos</button>
-      <button @click.prevent="goTo('/animes/populares')" class="btn btn-primary my-1 mx-1">Populares</button>
+      <router-link @click="goTo('/animes')" 
+        :to="{name: 'Animes'}"
+        class="btn btn-primary my-1 mx-1">Todas</router-link>
+      <router-link @click="goTo('/animes/estrenos')" 
+        :to="{name: 'AnimesType', params: { type: 'estrenos' }}"
+        class="btn btn-primary my-1 mx-1">Estrenos</router-link>
+      <router-link @click="goTo('/animes/populares')" 
+        :to="{name: 'AnimesType', params: { type: 'pupulares' }}"
+        class="btn btn-primary my-1 mx-1">Populares</router-link>
     </div>
     <Posters />
     <Pagination />
@@ -24,7 +30,6 @@ export default {
   methods: {
     ...mapActions({'getPosters': 'todo/getPosters'}),
     goTo(type) {
-      this.$router.push(type)
       this.getPosters({type})
     }
   },

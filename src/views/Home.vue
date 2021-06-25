@@ -2,8 +2,12 @@
   <div class="container-md">
     <h1 class="text-center mt-3 mb-2">Inicio</h1>
     <div class="container text-center my-3 mb-3">
-      <button @click.prevent="goTo()" class="btn btn-primary my-1 mx-1">Ultimo Año</button>
-      <button @click.prevent="goToLast()" class="btn btn-primary my-1 mx-1">Subido Recientemente</button>
+      <router-link @click="goTo()"
+        to="/"
+        class="btn btn-primary my-1 mx-1">Ultimo Año</router-link>
+      <router-link @click="goToLast()"
+        to="/last"
+        class="btn btn-primary my-1 mx-1">Subido Recientemente</router-link>
     </div>
     <Posters />
   </div>
@@ -23,11 +27,9 @@ export default {
       'getPosters': 'todo/getPosters'
     }),
     goTo() {
-      this.$router.push('/');
       this.getPosters({type: '/estrenos'});
     },
     goToLast() {
-      this.$router.push('/last');
       this.searchPoster({type: '/search'});
     }
   },
