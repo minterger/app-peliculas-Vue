@@ -4,7 +4,7 @@
       <div class="card-header">
         <ul class="nav nav-pills card-header-pills">
           <li class="nav-item" v-for="n in reproductores.length" :key="n">
-            <a class="nav-link" :class="[n === (active+1)? 'active' : '']" @click.prevent="changeRep(n)" aria-current="true" href="#">Opcion {{n}}</a>
+            <a class="nav-link" :class="[n === (active+1)? 'active' : '']" @click="changeRep(n)" aria-current="true" :href="[`#opc${n}`]">Opcion {{n}}</a>
           </li>
         </ul>
       </div>
@@ -33,6 +33,11 @@ export default {
   methods: {
     changeRep(n) {
       this.active = n - 1
+    }
+  },
+  created() {
+    if (this.$route.hash) {
+      this.active = this.$route.hash.replace('#opc', '')-1
     }
   }
 }

@@ -4,7 +4,7 @@
       <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs">
           <li class="nav-item" v-for="n in temporadas.seasons" :key="n">
-            <a class="nav-link" :class="[n === (active + 1) ? 'active' : '']" @click.prevent="changeTemp(n)" aria-current="true" href="#">Temporada {{n}}</a>
+            <a class="nav-link" :class="[n === (active + 1) ? 'active' : '']" @click="changeTemp(n)" aria-current="true" :href="[`#temp${n}`]">Temporada {{n}}</a>
           </li>
         </ul>
       </div>
@@ -40,6 +40,11 @@ export default {
   methods: {
     changeTemp(n) {
       this.active = n - 1
+    }
+  },
+  created() {
+    if (this.$route.hash) {
+      this.active = this.$route.hash.replace('#temp', '')-1
     }
   }
 }
