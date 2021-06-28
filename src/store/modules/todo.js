@@ -12,26 +12,55 @@ export default {
     updatePosters(state, data) {
       state.posters = data
     },
+    cleanPosters (state) {
+      state.posters = {}
+    },
     updateInfo(state, data) {
       state.info = data
+    },
+    cleanInfo(state) {
+      state.info = {}
     },
     updateReproductores(state, data) {
       state.reproductores = data
     },
+    cleanReproductores(state) {
+      state.reproductores = []
+    },
     updateTemporadas(state, data) {
       state.temporadas = data
+    },
+    cleanTemporadas(state) {
+      state.temporadas = {}
     }
   },
   actions: {
     async getPosters({commit}, {type, query}) {
+      commit('cleanPosters')
       const page = query || 1
       const res = await axios.get(`${process.env.VUE_APP_API_URL}${type}?page=${page}`)
       commit('updatePosters', res.data)
     },
+    async getPagePosters({commit}, {type,query}) {
+      const page = query || 1
+      const res = await axios.get(`${process.env.VUE_APP_API_URL}${type}?page=${page}`)
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera  
+      commit('updatePosters', res.data)
+    },
     async searchPoster({commit}, {type, searchQ, pageQ}) {
+      commit('cleanPosters')
       const search = searchQ || ''
       const page = pageQ || 1
       const res = await axios.get(`${process.env.VUE_APP_API_URL}${type}?s=${search}&page=${page}`)
+      commit('updatePosters', res.data)
+    },
+    async searchPagePoster({commit}, {type, searchQ, pageQ}) {
+      const search = searchQ || ''
+      const page = pageQ || 1
+      const res = await axios.get(`${process.env.VUE_APP_API_URL}${type}?s=${search}&page=${page}`)
+      document.body.scrollTop = 0; // For Safari
+      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera  
       commit('updatePosters', res.data)
     },
     async infoPoster({commit}, {type, info}) {
@@ -39,6 +68,7 @@ export default {
       commit('updateInfo', res.data)
     },
     async getReproductores({commit}, {type, info}) {
+      commit('cleanReproductores')
       const res = await axios.get(`${process.env.VUE_APP_API_URL}${type}/${info}`)
       commit('updateReproductores', res.data)
     },

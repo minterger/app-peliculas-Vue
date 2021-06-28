@@ -2,17 +2,17 @@
   <div class="d-flex justify-content-center mt-4" v-if="posters.pagination">
     <ul class="pagination pagination-sm" v-if="posters.pagination.lastPage > 1">
       <li class="page-item" :class="[posters.pagination.prevPage === null ? 'disabled' : '']">
-        <a class="page-link" @click.prevent="prevPage" href="#"><i class='bx bxs-left-arrow'></i></a>
+        <router-link class="page-link" @click="goPage(prevPage)" :to="{query: { s: searchQ, page: prevPage }}"><i class='bx bxs-left-arrow'></i></router-link>
       </li>
 
       <li class="page-item"
       :class="{'disabled': paginationNumber.isDisable, 'active': paginationNumber.isActive}"
       v-for="paginationNumber in paginationNumbers"
       :key="paginationNumber.number" >
-        <a class="page-link" href="#" @click.prevent="goPage(paginationNumber.number)">{{paginationNumber.number}}</a>
+        <router-link class="page-link" @click="goPage(paginationNumber.number)" :to="{query: { s: searchQ, page: paginationNumber.number }}">{{paginationNumber.number}}</router-link>
       </li>
       <li class="page-item" :class="[posters.pagination.nextPage === null ? 'disabled' : '']">
-        <a class="page-link" @click.prevent="nextPage" href="#"><i class='bx bxs-right-arrow'></i></a>
+        <router-link class="page-link" @click="goPage(nextPage)" :to="{query: { s: searchQ, page: nextPage }}"><i class='bx bxs-right-arrow'></i></router-link>
       </li>
     </ul>
   </div>
@@ -26,30 +26,22 @@ export default {
     }
   },
   methods: {
-    ...mapActions({'searchPoster': 'todo/searchPoster'}),
-    nextPage() {
-      const searchQ = this.$route.query.s || ''
-      const currentPage = this.$route.query.page || 1
-      const pageQ = parseInt(currentPage)+1
-      this.$router.push({query: { s: searchQ, page: pageQ }})
-      this.searchPoster({type: this.$route.path, searchQ, pageQ})
-    },
-    prevPage() {
-      const searchQ = this.$route.query.s || ''
-      const currentPage = this.$route.query.page || 1
-      const pageQ = parseInt(currentPage)-1
-      this.$router.push({query: { s: searchQ, page: pageQ }})
-      this.searchPoster({type: this.$route.path, searchQ, pageQ})
-
-    },
+    ...mapActions({'searchPoster': 'todo/searchPagePoster'}),
     goPage(pageQ) {
-      const searchQ = this.$route.query.s || ''
-      this.$router.push({query: { s: searchQ, page: pageQ}})
-      this.searchPoster({type: this.$route.path, searchQ, pageQ})
+      this.searchPoster({type: this.$route.path, searchQ: this.searchQ, pageQ})
     }
   },
   computed: {
     ...mapGetters({'posters': 'todo/posters'}),
+    searchQ() {
+      return this.$route.query.s || ''
+    },
+    nextPage() {
+      return parseInt(this.$route.query.page || 1) + 1
+    },
+    prevPage() {
+      return parseInt(this.$route.query.page || 1) - 1
+    },
     paginationNumbers() {
       const li = []
       let i = this.posters.pagination.page > 3 ? this.posters.pagination.page - 2 : 1;

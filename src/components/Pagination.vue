@@ -2,17 +2,17 @@
   <div class="d-flex justify-content-center mt-4" v-if="posters.pagination">
     <ul class="pagination pagination-sm" v-if="posters.pagination.lastPage > 1">
       <li class="page-item" :class="[posters.pagination.prevPage === null ? 'disabled' : '']">
-        <a class="page-link" @click.prevent="prevPage" href="#"><i class='bx bxs-left-arrow'></i></a>
+        <router-link class="page-link" @click="goPage(prevPage)" :to="{query: { page: prevPage }}"><i class='bx bxs-left-arrow'></i></router-link>
       </li>
 
       <li class="page-item"
       :class="{'disabled': paginationNumber.isDisable, 'active': paginationNumber.isActive}"
       v-for="paginationNumber in paginationNumbers"
       :key="paginationNumber.number" >
-        <a class="page-link" href="#" @click.prevent="goPage(paginationNumber.number)">{{paginationNumber.number}}</a>
+        <router-link class="page-link" @click="goPage(paginationNumber.number)" :to="{query: { page: paginationNumber.number }}">{{paginationNumber.number}}</router-link>
       </li>
       <li class="page-item" :class="[posters.pagination.nextPage === null ? 'disabled' : '']">
-        <a class="page-link" @click.prevent="nextPage" href="#"><i class='bx bxs-right-arrow'></i></a>
+        <router-link class="page-link" @click="goPage(nextPage)" :to="{query: { page: nextPage }}"><i class='bx bxs-right-arrow'></i></router-link>
       </li>
     </ul>
   </div>
@@ -26,27 +26,20 @@ export default {
     }
   },
   methods: {
-    ...mapActions({'getPosters': 'todo/getPosters'}),
-    nextPage() {
-      const currentPage = this.$route.query.page || 1
-      const page = parseInt(currentPage)+1
-      this.$router.push({query: { page }})
-      this.getPosters({type: this.$route.path, query: page})
-    },
-    prevPage() {
-      const currentPage = this.$route.query.page || 1
-      const page = parseInt(currentPage)-1
-      this.$router.push({query: { page }})
-      this.getPosters({type: this.$route.path, query: page})
-    },
+    ...mapActions({'getPosters': 'todo/getPagePosters'}),
     goPage(page) {
-      this.$router.push({query: {page}})
       this.getPosters({type: this.$route.path, query: page})
 
     }
   },
   computed: {
     ...mapGetters({'posters': 'todo/posters'}),
+    nextPage() {
+      return parseInt(this.$route.query.page || 1) + 1
+    },
+    prevPage() {
+      return parseInt(this.$route.query.page || 1) - 1
+    },
     paginationNumbers() {
       const li = []
       let i = this.posters.pagination.page > 3 ? this.posters.pagination.page - 2 : 1;

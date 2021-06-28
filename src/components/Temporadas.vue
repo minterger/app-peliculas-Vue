@@ -1,6 +1,6 @@
 <template>
   <div class="mt-3">
-    <div class="card text-center">
+    <div class="card text-center" v-if="temporadas.seasons">
       <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs">
           <li class="nav-item" v-for="n in temporadas.seasons" :key="n">
