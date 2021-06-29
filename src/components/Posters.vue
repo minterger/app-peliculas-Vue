@@ -4,7 +4,7 @@
       <router-link class="card mb-2" :to="poster.poster_link">
         <img :src="poster.poster.src" :alt="poster.poster.alt" class="card-img-top">
         <div class="card-body">
-          <h6 class="card-title">{{poster.title}}</h6>
+          <span class="card-title">{{poster.title}}</span>
           <p class="card-text"><i class='bx bxs-star'></i> {{poster.raiting}}</p>
         </div>
         <div class="type" v-if="poster.type">
@@ -36,6 +36,10 @@ export default {
   }
   .card-text {
     color: #72e9e9;
+  }
+
+  img {
+    width: 100%;
   }
 
   .card {
