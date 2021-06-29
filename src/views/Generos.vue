@@ -2,16 +2,20 @@
   <div class="container-md">
     <h1 class="text-center my-3">Genero {{type}} de {{genero}}</h1>
     <div class="container text-center my-3 mb-3">
-      <router-link @click="goTo(`/generos/${$route.params.genero}`)"
+      <router-link exact-active-class="active"
+        @click="goTo(`/generos/${$route.params.genero}`)"
         :to="{name: 'Generos', params: { genero: $route.params.genero }}"
         class="btn btn-primary my-1 mx-1">Todos</router-link>
-      <router-link @click="goTo(`/generos/${$route.params.genero}/peliculas`)"
+      <router-link exact-active-class="active"
+        @click="goTo(`/generos/${$route.params.genero}/peliculas`)"
         :to="{name: 'GenerosType', params: { genero: $route.params.genero, type: 'peliculas' }}"
         class="btn btn-primary my-1 mx-1">Peliculas</router-link>
-      <router-link @click="goTo(`/generos/${$route.params.genero}/series`)"
+      <router-link exact-active-class="active"
+        @click="goTo(`/generos/${$route.params.genero}/series`)"
         :to="{name: 'GenerosType', params: { genero: $route.params.genero, type: 'series' }}"
         class="btn btn-primary my-1 mx-1">Series</router-link>   
-      <router-link @click="goTo(`/generos/${$route.params.genero}/animes`)"
+      <router-link exact-active-class="active"
+        @click="goTo(`/generos/${$route.params.genero}/animes`)"
         :to="{name: 'GenerosType', params: { genero: $route.params.genero, type: 'animes' }}"
         class="btn btn-primary my-1 mx-1">Animes</router-link>      
     </div>

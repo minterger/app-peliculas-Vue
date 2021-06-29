@@ -2,10 +2,12 @@
   <div class="container-md">
     <h1 class="text-center mt-3 mb-2">Inicio</h1>
     <div class="container text-center my-3 mb-3">
-      <router-link @click="goTo()"
+      <router-link exact-active-class="active"
+        @click="goTo()"
         to="/"
         class="btn btn-primary my-1 mx-1">Ultimo Año</router-link>
-      <router-link @click="goToLast()"
+      <router-link exact-active-class="active"
+        @click="goToLast()"
         to="/last"
         class="btn btn-primary my-1 mx-1">Subido Recientemente</router-link>
     </div>

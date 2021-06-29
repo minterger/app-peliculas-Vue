@@ -14,13 +14,13 @@
           <router-link exact-active-class="active" class="nav-link" @click="getPosterUpdated('/estrenos', 'HomeLast')" to="/">Inicio</router-link>
         </li>
         <li class="nav-item">
-          <router-link exact-active-class="active" class="nav-link" @click="getPosterUpdated('/peliculas', 'PeliculasType')" to="/peliculas">Peliculas</router-link>
+          <router-link active-class="active" class="nav-link" @click="getPosterUpdated('/peliculas', 'PeliculasType')" to="/peliculas">Peliculas</router-link>
         </li>
         <li class="nav-item">
-          <router-link exact-active-class="active" class="nav-link" @click="getPosterUpdated('/series', 'SeriesType')" to="/series">Series</router-link>
+          <router-link active-class="active" class="nav-link" @click="getPosterUpdated('/series', 'SeriesType')" to="/series">Series</router-link>
         </li>
         <li class="nav-item">
-          <router-link exact-active-class="active" class="nav-link" @click="getPosterUpdated('/animes', 'AnimesType')" to="/animes">Animes</router-link>
+          <router-link active-class="active" class="nav-link" @click="getPosterUpdated('/animes', 'AnimesType')" to="/animes">Animes</router-link>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" data-bs-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Generos</a>
@@ -37,7 +37,7 @@
       </ul>
       <form @submit.prevent="[searchs(search)]" class="d-flex">
         <input class="form-control me-1 me-sm-2" type="text" v-model="search" placeholder="Search">
-        <button class="btn btn-secondary my-2 my-sm-0" type="submit"><i class='bx bx-search-alt-2'></i></button>
+        <button class="btn btn-secondary my-2 my-sm-0" type="submit" title="Buscar"><i class='bx bx-search-alt-2'></i></button>
       </form>
     </div>
   </div>

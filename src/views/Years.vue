@@ -2,16 +2,20 @@
   <div class="container-md">
     <h1 class="text-center my-3">{{type}} Año {{$route.params.year}}</h1>
     <div class="container text-center my-3 mb-3">
-      <router-link @click="goTo(`/year/${$route.params.year}`)"
+      <router-link exact-active-class="active"
+        @click="goTo(`/year/${$route.params.year}`)"
         :to="{name: 'Years', params: { year: $route.params.year }}"
         class="btn btn-primary my-1 mx-1">Todos</router-link>
-      <router-link @click="goTo(`/year/${$route.params.year}/peliculas`)"
+      <router-link exact-active-class="active"
+        @click="goTo(`/year/${$route.params.year}/peliculas`)"
         :to="{name: 'YearsType', params: { year: $route.params.year, type: 'peliculas' }}"
         class="btn btn-primary my-1 mx-1">Peliculas</router-link>
-      <router-link @click="goTo(`/year/${$route.params.year}/series`)"
+      <router-link exact-active-class="active"
+        @click="goTo(`/year/${$route.params.year}/series`)"
         :to="{name: 'YearsType', params: { year: $route.params.year, type: 'series' }}"
         class="btn btn-primary my-1 mx-1">Series</router-link>   
-      <router-link @click="goTo(`/year/${$route.params.year}/animes`)"
+      <router-link exact-active-class="active"
+        @click="goTo(`/year/${$route.params.year}/animes`)"
         :to="{name: 'YearsType', params: { year: $route.params.year, type: 'animes' }}"
         class="btn btn-primary my-1 mx-1">Animes</router-link>      
     </div>

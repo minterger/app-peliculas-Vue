@@ -2,13 +2,16 @@
   <div class="container-md">
     <h1 class="text-center my-3">Series {{type}}</h1>
     <div class="container text-center mb-3 my-3">
-      <router-link @click="goTo('/series')" 
+      <router-link exact-active-class="active"
+        @click="goTo('/series')" 
         :to="{name: 'Series'}"
         class="btn btn-primary my-1 mx-1">Todas</router-link>
-      <router-link @click="goTo('/series/estrenos')" 
+      <router-link exact-active-class="active"
+        @click="goTo('/series/estrenos')" 
         :to="{name: 'SeriesType', params: { type: 'estrenos' }}"
         class="btn btn-primary my-1 mx-1">Estrenos</router-link>
-      <router-link @click="goTo('/series/populares')" 
+      <router-link exact-active-class="active"
+        @click="goTo('/series/populares')" 
         :to="{name: 'SeriesType', params: { type: 'populares' }}"
         class="btn btn-primary my-1 mx-1">Populares</router-link>
     </div>
