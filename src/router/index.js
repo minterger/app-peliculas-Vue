@@ -4,12 +4,12 @@ const routes = [
   {
     path: '/',
     name: 'Home',
-    component: () => import('@/views/Home.vue'),
+    component: () => import(/* webpackChunkName: "Home" */'@/views/Home.vue'),
     children: [
       {
         path: 'last',
         name: 'HomeLast',
-        component: () => import('@/views/Home.vue')
+        component: () => import(/* webpackChunkName: "HomeLast" */'@/views/Home.vue')
       },
     ]
   },
@@ -18,98 +18,98 @@ const routes = [
   {
     path: '/peliculas',
     name: 'Peliculas',
-    component: () => import('../views/Peliculas.vue'),
+    component: () => import(/* webpackChunkName: "Peliculas" */'@/views/Peliculas.vue'),
     children: [
       {
         path: ':type',
         name: 'PeliculasType',
-        component: () => import('../views/Peliculas.vue'),
+        component: () => import(/* webpackChunkName: "PeliculasType" */'@/views/Peliculas.vue'),
       },
     ]
   },
   {
     path: '/pelicula/:pelicula',
     name: 'Pelicula',
-    component: () => import ('../views/reproducir/Pelicula.vue')
+    component: () => import (/* webpackChunkName: "Pelicula" */'@/views/reproducir/Pelicula.vue')
   },
 
   //series routes
   {
     path: '/series',
     name: 'Series',
-    component: () => import('../views/Series.vue'),
+    component: () => import(/* webpackChunkName: "Series" */'@/views/Series.vue'),
     children: [
       {
         path: ':type',
         name: 'SeriesType',
-        component: () => import('../views/Series.vue')
+        component: () => import(/* webpackChunkName: "SeriesType" */'@/views/Series.vue')
       },
     ]
   },
   {
     path: '/serie/:serie',
     name: 'Serie',
-    component: () => import('../views/reproducir/Serie.vue')
+    component: () => import(/* webpackChunkName: "Serie" */'@/views/reproducir/Serie.vue')
   },
   {
     path: '/serie/:serie/temporada/:temp/capitulo/:cap',
     name: 'SerieRep',
-    component: () => import('../views/reproducir/RepSerie.vue')
+    component: () => import(/* webpackChunkName: "SerieRep" */'@/views/reproducir/RepSerie.vue')
   },
 
   //animes routes
   {
     path: '/animes',
     name: 'Animes',
-    component: () => import('../views/Animes.vue'),
+    component: () => import(/* webpackChunkName: "Animes" */'@/views/Animes.vue'),
     children: [
       {
         path: ':type',
         name: 'AnimesType',
-        component: () => import('../views/Animes.vue')
+        component: () => import(/* webpackChunkName: "AnimesType" */'@/views/Animes.vue')
       },
     ]
   },
   {
     path: '/anime/:anime',
     name: 'Anime',
-    component: () => import('../views/reproducir/Anime.vue')
+    component: () => import(/* webpackChunkName: "Anime" */'@/views/reproducir/Anime.vue')
   },
   {
     path: '/anime/:anime/temporada/:temp/capitulo/:cap',
     name: 'AnimeRep',
-    component: () => import('../views/reproducir/RepAnime.vue')
+    component: () => import(/* webpackChunkName: "AnimeRep" */'@/views/reproducir/RepAnime.vue')
   },
 
   //search route
   {
     path: '/search',
-    name: 'search',
-    component: () => import('../views/Search.vue')
+    name: 'Search',
+    component: () => import(/* webpackChunkName: "Search" */'@/views/Search.vue')
   },
 
   //generos and years routes
   {
     path: '/generos/:genero',
     name: 'Generos',
-    component: () => import('../views/Generos.vue'),
+    component: () => import(/* webpackChunkName: "Generos" */'@/views/Generos.vue'),
     children: [
       {
         path: ':type',
         name: 'GenerosType',
-        component: () => import('../views/Generos.vue')
+        component: () => import(/* webpackChunkName: "GenerosType" */'@/views/Generos.vue')
       },
     ]
   },
   {
     path: '/year/:year',
     name: 'Years',
-    component: () => import('../views/Years.vue'),
+    component: () => import(/* webpackChunkName: "Years" */'@/views/Years.vue'),
     children: [
       {
         path: '/year/:year/:type',
         name: 'YearsType',
-        component: () => import('../views/Years.vue')
+        component: () => import(/* webpackChunkName: "YearsType" */'@/views/Years.vue')
       }
     ]
   },
@@ -117,7 +117,7 @@ const routes = [
   {
     path: '/404',
     name: '404',
-    component: () => import('@/views/404.vue')
+    component: () => import(/* webpackChunkName: "404" */'@/views/404.vue')
   },
   {
     path: '/:pathMatch(.*)*',
