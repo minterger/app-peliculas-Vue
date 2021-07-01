@@ -2,7 +2,7 @@
   <div>
     <div v-if="info.title" class="row row-cols-1 row-cols-md-3 mt-3">
       <div class="col col-lg-3 d-flex justify-content-center justify-content-md-start">
-        <img class="py-3 px-3" :src="info.poster_img" alt="" />
+        <img class="py-3 px-3" v-lazy="info.poster_img" alt="" />
       </div>
       <div class="col pt-3 px-3">
         <h2 class="mb-2">{{info.title}} {{temp}}</h2>
