@@ -44,8 +44,6 @@ export default {
     async getPagePosters({commit}, {type,query}) {
       const page = query || 1
       const res = await axios.get(`${process.env.VUE_APP_API_URL}${type}?page=${page}`)
-      document.body.scrollTop = 0; // For Safari
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera  
       commit('updatePosters', res.data)
     },
     async searchPoster({commit}, {type, searchQ, pageQ}) {
@@ -59,8 +57,6 @@ export default {
       const search = searchQ || ''
       const page = pageQ || 1
       const res = await axios.get(`${process.env.VUE_APP_API_URL}${type}?s=${search}&page=${page}`)
-      document.body.scrollTop = 0; // For Safari
-      document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera  
       commit('updatePosters', res.data)
     },
     async infoPoster({commit}, {type, info}) {
@@ -70,6 +66,11 @@ export default {
     async getReproductores({commit}, {type, info}) {
       commit('cleanReproductores')
       const res = await axios.get(`${process.env.VUE_APP_API_URL}${type}/${info}`)
+      commit('updateReproductores', res.data)
+    },
+    async updateReproductores({commit}, {info}) {
+      commit('cleanReproductores')
+      const res = await axios.get(`${process.env.VUE_APP_API_URL}${info}`)
       commit('updateReproductores', res.data)
     },
     async getTemporadas({commit}, {type, info}) {

@@ -1,9 +1,6 @@
 <template>
   <div class="container-md">
     <Info />
-    <div class="text-center">
-      <router-link class="btn btn-primary mt-3" :to="{name: 'Serie', params: {serie: $route.params.serie}}">Volver a los Capitulos</router-link>
-    </div>
     <Reproductores />
   </div>
 </template>

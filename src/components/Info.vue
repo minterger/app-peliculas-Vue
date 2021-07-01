@@ -1,7 +1,7 @@
 <template>
   <div>
     <div v-if="info.title" class="row row-cols-1 row-cols-md-3 mt-3">
-      <div class="col d-flex justify-content-center">
+      <div class="col col-lg-3 d-flex justify-content-center justify-content-md-start">
         <img class="py-3 px-3" :src="info.poster_img" alt="" />
       </div>
       <div class="col pt-3 px-3">
@@ -69,6 +69,7 @@ export default {
     max-height: 130px;
     overflow-y: auto;
   }
+
   strong {
     color: lightcoral;
   }
