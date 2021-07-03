@@ -1,6 +1,6 @@
 <template>
   <div class="row row-cols-2 row-cols-md-3 row-cols-lg-4 row-cols-xl-5 row-cols-xl-6 g-4">
-    <div class="col" v-for="poster in posters.posters" :key="poster.i">
+    <div class="col" v-for="poster in posters" :key="poster.i">
       <router-link class="card mb-2" :to="poster.poster_link">
         <img v-lazy="poster.poster.src" :alt="poster.poster.alt" class="card-img-top">
         <div class="card-body">

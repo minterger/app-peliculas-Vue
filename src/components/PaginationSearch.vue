@@ -1,9 +1,9 @@
 <template>
-  <div class="d-flex justify-content-center mt-4" v-if="posters.pagination">
-    <ul class="pagination pagination-sm" v-if="posters.pagination.lastPage > 1">
+  <div class="d-flex justify-content-center mt-4" v-if="pagination">
+    <ul class="pagination pagination-sm" v-if="pagination.lastPage > 1">
       <li
         class="page-item"
-        :class="[posters.pagination.prevPage === null ? 'disabled' : '']"
+        :class="[pagination.prevPage === null ? 'disabled' : '']"
       >
         <router-link
           class="page-link"
@@ -32,7 +32,7 @@
       </li>
       <li
         class="page-item"
-        :class="[posters.pagination.nextPage === null ? 'disabled' : '']"
+        :class="[pagination.nextPage === null ? 'disabled' : '']"
       >
         <router-link
           class="page-link"
@@ -63,7 +63,7 @@ export default {
     },
   },
   computed: {
-    ...mapGetters({ posters: "todo/posters" }),
+    ...mapGetters({ pagination: "todo/pagination" }),
     searchQ() {
       return this.$route.query.s || "";
     },
@@ -76,21 +76,21 @@ export default {
     paginationNumbers() {
       const li = [];
       let i =
-        this.posters.pagination.page > 3 ? this.posters.pagination.page - 2 : 1;
+        this.pagination.page > 3 ? this.pagination.page - 2 : 1;
 
       if (i != 1) {
         li.push({ number: "...", isActive: false, isDisable: true });
       }
-      for (; i <= this.posters.pagination.page + 2; i++) {
+      for (; i <= this.pagination.page + 2; i++) {
         if (
-          i == this.posters.pagination.page &&
-          i !== this.posters.pagination.lastPage
+          i == this.pagination.page &&
+          i !== this.pagination.lastPage
         ) {
           li.push({ number: i, isActive: true, isDisable: false });
-        } else if (i !== this.posters.pagination.lastPage) {
+        } else if (i !== this.pagination.lastPage) {
           li.push({ number: i, isActive: false, isDisable: false });
         } else {
-          if (i == this.posters.pagination.page) {
+          if (i == this.pagination.page) {
             li.push({ number: i, isActive: true, isDisable: false });
             break;
           }
@@ -98,7 +98,7 @@ export default {
           break;
         }
       }
-      if (this.posters.pagination.page < this.posters.pagination.lastPage - 2) {
+      if (this.pagination.page < this.pagination.lastPage - 2) {
         li.push({ number: "...", isActive: false, isDisable: true });
       }
       return li;

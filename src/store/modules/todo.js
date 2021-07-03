@@ -3,17 +3,34 @@ import axios from "axios"
 export default {
   namespaced: true,
   state: {
-    posters: {},
+    posters: [],
+    pagination: {},
     info: {},
     reproductores: [],
     temporadas: {}
   },
   mutations: {
     updatePosters(state, data) {
-      state.posters = data
+      state.posters = data.posters
+      state.pagination = data.pagination
     },
-    cleanPosters (state) {
-      state.posters = {}
+    cleanPostersPagination (state) {
+      state.posters = []
+      state.pagination = {}
+    },
+    emptyPosters (state) {
+      state.posters = state.posters.map((e, i) => {
+        return {
+          i,
+          poster_link: "#",
+          poster: {
+            alt: "Cargando",
+            src: "/img/loading.gif"
+          },
+          title: "Cargando",
+          raiting: "10/10"
+        }
+      })
     },
     updateInfo(state, data) {
       state.info = data
@@ -36,24 +53,26 @@ export default {
   },
   actions: {
     async getPosters({commit}, {type, query}) {
-      commit('cleanPosters')
+      commit('cleanPostersPagination')
       const page = query || 1
       const res = await axios.get(`${process.env.VUE_APP_API_URL}${type}?page=${page}`)
       commit('updatePosters', res.data)
     },
     async getPagePosters({commit}, {type,query}) {
+      commit('emptyPosters')
       const page = query || 1
       const res = await axios.get(`${process.env.VUE_APP_API_URL}${type}?page=${page}`)
       commit('updatePosters', res.data)
     },
     async searchPoster({commit}, {type, searchQ, pageQ}) {
-      commit('cleanPosters')
+      commit('cleanPostersPagination')
       const search = searchQ || ''
       const page = pageQ || 1
       const res = await axios.get(`${process.env.VUE_APP_API_URL}${type}?s=${search}&page=${page}`)
       commit('updatePosters', res.data)
     },
     async searchPagePoster({commit}, {type, searchQ, pageQ}) {
+      commit('emptyPosters')
       const search = searchQ || ''
       const page = pageQ || 1
       const res = await axios.get(`${process.env.VUE_APP_API_URL}${type}?s=${search}&page=${page}`)
@@ -80,6 +99,7 @@ export default {
   },
   getters: {
     posters: state => state.posters,
+    pagination: state => state.pagination,
     info: state => state.info,
     reproductores: state => state.reproductores,
     temporadas: state => state.temporadas
