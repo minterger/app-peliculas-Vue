@@ -6,7 +6,6 @@
         v-for="item in navegacion"
         :key="item"
         :to="item.href"
-        @click="updateRep(item.href)"
       >
         {{ item.text }}
       </router-link>
@@ -19,7 +18,6 @@
               <a
                 class="nav-link"
                 :class="[n === active + 1 ? 'active' : '']"
-                @click="changeRep(n)"
                 aria-current="true"
                 :href="[`#opc${n}`]"
                 >Opcion {{ n }}</a
@@ -60,18 +58,22 @@ export default {
         : [];
     },
   },
-  methods: {
-    ...mapActions({
-      updateReproductores: "todo/updateReproductores",
-    }),
-    changeRep(n) {
-      this.active = n - 1;
+  watch: {
+    '$route.hash'() {
+      this.active = parseInt(this.$route.hash.replace("#opc", "")) - 1 || 0
+
     },
-    updateRep(info) {
+    '$route.path'() {
+      const info = this.$route.path
       if (info.match(/\/\w{5}\/((\w+\-)+)?(\w+)\//g)) {
         this.updateReproductores({ info });
       }
-    },
+    }
+  },
+  methods: {
+    ...mapActions({
+      updateReproductores: "todo/updateReproductores",
+    })
   },
   created() {
     if (this.$route.hash) {
