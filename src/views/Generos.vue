@@ -3,19 +3,15 @@
     <h1 class="text-center my-3">Genero {{type}} de {{genero}}</h1>
     <div class="container text-center my-3 mb-3">
       <router-link exact-active-class="active"
-        @click="goTo(`/generos/${$route.params.genero}`)"
         :to="{name: 'Generos', params: { genero: $route.params.genero }}"
         class="btn btn-primary my-1 mx-1">Todos</router-link>
       <router-link exact-active-class="active"
-        @click="goTo(`/generos/${$route.params.genero}/peliculas`)"
         :to="{name: 'GenerosType', params: { genero: $route.params.genero, type: 'peliculas' }}"
         class="btn btn-primary my-1 mx-1">Peliculas</router-link>
       <router-link exact-active-class="active"
-        @click="goTo(`/generos/${$route.params.genero}/series`)"
         :to="{name: 'GenerosType', params: { genero: $route.params.genero, type: 'series' }}"
         class="btn btn-primary my-1 mx-1">Series</router-link>   
       <router-link exact-active-class="active"
-        @click="goTo(`/generos/${$route.params.genero}/animes`)"
         :to="{name: 'GenerosType', params: { genero: $route.params.genero, type: 'animes' }}"
         class="btn btn-primary my-1 mx-1">Animes</router-link>      
     </div>
@@ -35,10 +31,10 @@ export default {
     Posters
   },
   methods: {
-    ...mapActions({'getPosters': 'todo/getPosters'}),
-    goTo(type) {
-      this.getPosters({type})
-    }
+    ...mapActions({
+      'getPosters': 'todo/getPosters',
+      'getPagePosters': 'todo/getPagePosters'
+      }),
   },
   computed: {
     type() {
@@ -46,6 +42,13 @@ export default {
     },
     genero() {
       return this.$route.params.genero ? (this.$route.params.genero.charAt(0).toUpperCase() + this.$route.params.genero.slice(1)).replace(/\-+/g, ' ') : ''
+    }
+  },
+  watch: {
+    '$route'() {
+      if (this.$route.name == 'Generos' || this.$route.name == 'GenerosType') {
+        this.getPagePosters({type: this.$route.path, query: this.$route.query.page})
+      }
     }
   },
   created() {

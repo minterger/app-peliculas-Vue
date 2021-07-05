@@ -6,8 +6,8 @@ import VueLazyloadNext from 'vue-lazyload-next'
 
 const lazyOptions = {
   preLoad: 2,
-  error: '/img/error.jpeg',
-  loading: '/img/loading.gif',
+  error: '/img/error-img.jpeg',
+  loading: '/img/loading-img.gif',
   attempt: 2
 }
 

@@ -20,10 +20,10 @@ export default {
       'infoPoster': 'todo/infoPoster',
       'getReproductores': 'todo/getReproductores'
     }),
-    ...mapMutations({'cleanInfo': 'todo/cleanInfo'})
+    ...mapMutations({'updateInfo': 'todo/updateInfo'})
   },
   created() {
-    this.cleanInfo()
+    this.updateInfo()
     this.infoPoster({type: '/pelicula', info: this.$route.params.pelicula})
     this.getReproductores({type: '/pelicula/rep', info: this.$route.params.pelicula})
   }

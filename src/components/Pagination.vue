@@ -9,7 +9,6 @@
           class="page-link"
           title="Pagina Anterior"
           :to="{ query: { page: prevPage } }"
-          @click="goPage(prevPage)"
           ><i class="bx bxs-left-arrow"></i
         ></router-link>
       </li>
@@ -26,7 +25,6 @@
         <router-link
           class="page-link"
           :to="{ query: { page: paginationNumber.number } }"
-          @click="goPage(paginationNumber.number)"
           >{{ paginationNumber.number }}</router-link
         >
       </li>
@@ -38,7 +36,6 @@
           class="page-link"
           title="Pagina Siguiente"
           :to="{ query: { page: nextPage } }"
-          @click="goPage(nextPage)"
           ><i class="bx bxs-right-arrow"></i
         ></router-link>
       </li>
@@ -47,16 +44,10 @@
 </template>
 
 <script>
-import { mapGetters, mapActions } from "vuex";
+import { mapGetters } from "vuex";
 export default {
   data() {
     return {};
-  },
-  methods: {
-    ...mapActions({ getPosters: "todo/getPagePosters" }),
-    goPage(page) {
-      this.getPosters({ type: this.$route.path, query: page });
-    },
   },
   computed: {
     ...mapGetters({ pagination: "todo/pagination" }),

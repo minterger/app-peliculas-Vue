@@ -20,15 +20,32 @@ export default {
     PaginationSearch
   },
   methods: {
-    ...mapActions({'searchPoster': 'todo/searchPoster'})
+    ...mapActions({
+      'searchPoster': 'todo/searchPoster',
+      'searchPagePoster': 'todo/searchPagePoster'
+      })
   },
   computed: {
-    ...mapGetters({'posters': 'todo/posters'}),
+    ...mapGetters({
+      'posters': 'todo/posters',
+      'statusSearch': 'todo/statusSearch'
+    }),
     noResults() {
-      if (this.posters.posters) {
-        return this.posters.posters.length !== 0 ? true : false
+      if (this.statusSearch) {
+        return this.posters.length !== 0 ? true : false
       }
       return true
+    }
+  },
+  watch : {
+    '$route'() {
+      if (this.$route.name == 'Search') {
+        this.searchPagePoster({
+          type: this.$route.path,
+          searchQ: this.$route.query.s,
+          pageQ: this.$route.query.page,
+        })
+      }
     }
   },
   created() {

@@ -21,14 +21,14 @@ export default {
       'getTemporadas': 'todo/getTemporadas'
     }),
     ...mapMutations({
-      'cleanInfo': 'todo/cleanInfo',
-      'cleanTemporadas': 'todo/cleanTemporadas'
+      'updateInfo': 'todo/updateInfo',
+      'updateTemporadas': 'todo/updateTemporadas'
     })
   },
   created() {
-    this.cleanInfo()
+    this.updateInfo()
     this.infoPoster({type: '/anime', info: this.$route.params.anime})
-    this.cleanTemporadas()
+    this.updateTemporadas()
     this.getTemporadas({type: '/anime', info: this.$route.params.anime})
   }
 }

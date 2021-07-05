@@ -26,13 +26,18 @@ export default {
   methods: {
     ...mapActions({
       'searchPoster': 'todo/searchPoster',
-      'getPosters': 'todo/getPosters'
+      'searchPagePoster': 'todo/searchPagePoster',
+      'getPosters': 'todo/getPosters',
+      'getPagePosters': 'todo/getPagePosters',
     }),
-    goTo() {
-      this.getPosters({type: '/estrenos'});
-    },
-    goToLast() {
-      this.searchPoster({type: '/search'});
+  },
+  watch: {
+    '$route'() {
+      if (this.$route.name == 'Home') {
+        this.getPagePosters({type: '/estrenos'})
+      } else if (this.$route.name == 'HomeLast') {
+        this.searchPagePoster({type: '/search'});
+      }
     }
   },
   created() {

@@ -7,16 +7,13 @@ export default {
     pagination: {},
     info: {},
     reproductores: [],
-    temporadas: {}
+    temporadas: {},
+    statusSearch: false
   },
   mutations: {
     updatePosters(state, data) {
-      state.posters = data.posters
-      state.pagination = data.pagination
-    },
-    cleanPostersPagination (state) {
-      state.posters = []
-      state.pagination = {}
+      state.posters = data ? data.posters : []
+      state.pagination = data ? data.pagination : {}
     },
     emptyPosters (state) {
       state.posters = state.posters.map((e, i) => {
@@ -25,7 +22,7 @@ export default {
           poster_link: "#",
           poster: {
             alt: "Cargando",
-            src: "/img/loading.gif"
+            src: "/img/loading-img.gif"
           },
           title: "Cargando",
           raiting: "10/10"
@@ -33,27 +30,21 @@ export default {
       })
     },
     updateInfo(state, data) {
-      state.info = data
-    },
-    cleanInfo(state) {
-      state.info = {}
+      state.info = data || {}
     },
     updateReproductores(state, data) {
-      state.reproductores = data
-    },
-    cleanReproductores(state) {
-      state.reproductores = []
+      state.reproductores = data || []
     },
     updateTemporadas(state, data) {
-      state.temporadas = data
+      state.temporadas = data || {}
     },
-    cleanTemporadas(state) {
-      state.temporadas = {}
+    updateStatusSearch(state , status) {
+      state.statusSearch = status || false
     }
   },
   actions: {
     async getPosters({commit}, {type, query}) {
-      commit('cleanPostersPagination')
+      commit('updatePosters')
       const page = query || 1
       const res = await axios.get(`${process.env.VUE_APP_API_URL}${type}?page=${page}`)
       commit('updatePosters', res.data)
@@ -65,11 +56,13 @@ export default {
       commit('updatePosters', res.data)
     },
     async searchPoster({commit}, {type, searchQ, pageQ}) {
-      commit('cleanPostersPagination')
+      commit('updateStatusSearch')
+      commit('updatePosters')
       const search = searchQ || ''
       const page = pageQ || 1
       const res = await axios.get(`${process.env.VUE_APP_API_URL}${type}?s=${search}&page=${page}`)
       commit('updatePosters', res.data)
+      commit('updateStatusSearch', true)
     },
     async searchPagePoster({commit}, {type, searchQ, pageQ}) {
       commit('emptyPosters')
@@ -83,12 +76,12 @@ export default {
       commit('updateInfo', res.data)
     },
     async getReproductores({commit}, {type, info}) {
-      commit('cleanReproductores')
+      commit('updateReproductores')
       const res = await axios.get(`${process.env.VUE_APP_API_URL}${type}/${info}`)
       commit('updateReproductores', res.data)
     },
     async updateReproductores({commit}, {info}) {
-      commit('cleanReproductores')
+      commit('updateReproductores')
       const res = await axios.get(`${process.env.VUE_APP_API_URL}${info}`)
       commit('updateReproductores', res.data)
     },
@@ -102,6 +95,7 @@ export default {
     pagination: state => state.pagination,
     info: state => state.info,
     reproductores: state => state.reproductores,
-    temporadas: state => state.temporadas
+    temporadas: state => state.temporadas,
+    statusSearch: state => state.statusSearch
   }
 }

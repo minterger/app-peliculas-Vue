@@ -31,14 +31,21 @@ export default {
     Posters
   },
   methods: {
-    ...mapActions({'getPosters': 'todo/getPosters'}),
-    goTo(type) {
-      this.getPosters({type})
-    }
+    ...mapActions({
+      'getPosters': 'todo/getPosters',
+      'getPagePosters': 'todo/getPagePosters'
+      }),
   },
   computed: {
     type() {
       return this.$route.params.type ? this.$route.params.type.charAt(0).toUpperCase() + this.$route.params.type.slice(1) : ''
+    }
+  },
+  watch: {
+    '$route'() {
+      if (this.$route.name == 'Series' || this.$route.name == 'SeriesType') {
+        this.getPagePosters({type: this.$route.path, query: this.$route.query.page})
+      }
     }
   },
   created() {

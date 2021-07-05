@@ -8,7 +8,6 @@
         <router-link
           class="page-link"
           title="Pagina Anterior"
-          @click="goPage(prevPage)"
           :to="{ query: { s: searchQ, page: prevPage } }"
           ><i class="bx bxs-left-arrow"></i
         ></router-link>
@@ -25,7 +24,6 @@
       >
         <router-link
           class="page-link"
-          @click="goPage(paginationNumber.number)"
           :to="{ query: { s: searchQ, page: paginationNumber.number } }"
           >{{ paginationNumber.number }}</router-link
         >
@@ -37,7 +35,6 @@
         <router-link
           class="page-link"
           title="Pagina Siguiente"
-          @click="goPage(nextPage)"
           :to="{ query: { s: searchQ, page: nextPage } }"
           ><i class="bx bxs-right-arrow"></i
         ></router-link>
@@ -54,13 +51,6 @@ export default {
   },
   methods: {
     ...mapActions({ searchPoster: "todo/searchPagePoster" }),
-    goPage(pageQ) {
-      this.searchPoster({
-        type: this.$route.path,
-        searchQ: this.searchQ,
-        pageQ,
-      });
-    },
   },
   computed: {
     ...mapGetters({ pagination: "todo/pagination" }),

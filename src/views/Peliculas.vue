@@ -3,15 +3,12 @@
     <h1 class="text-center my-3">Peliculas {{type}}</h1>
     <div class="container text-center mb-3 my-3">
       <router-link exact-active-class="active"
-        @click="goTo('/peliculas')"
         :to="{name: 'Peliculas'}"
         class="btn btn-primary my-1 mx-1">Todas</router-link>
       <router-link exact-active-class="active"
-        @click="goTo('/peliculas/estrenos')"
         :to="{name: 'PeliculasType', params: { type: 'estrenos' }}"
         class="btn btn-primary my-1 mx-1">Estrenos</router-link>
       <router-link exact-active-class="active"
-        @click="goTo('/peliculas/populares')"
         :to="{name: 'PeliculasType', params: { type: 'populares' }}"
         class="btn btn-primary my-1 mx-1">Populares</router-link>
     </div>
@@ -31,14 +28,21 @@ export default {
     Posters
   },
   methods: {
-    ...mapActions({'getPosters': 'todo/getPosters'}),
-    goTo(type) {
-      this.getPosters({type})
-    }
+    ...mapActions({
+      'getPosters': 'todo/getPosters',
+      'getPagePosters': 'todo/getPagePosters'
+      }),
   },
   computed: {
     type() {
       return this.$route.params.type ? this.$route.params.type.charAt(0).toUpperCase() + this.$route.params.type.slice(1) : ''
+    }
+  },
+  watch: {
+    '$route'() {
+      if (this.$route.name == 'Peliculas' || this.$route.name == 'PeliculasType') {
+        this.getPagePosters({type: this.$route.path, query: this.$route.query.page})
+      }
     }
   },
   created() {
