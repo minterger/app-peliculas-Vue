@@ -159,5 +159,6 @@ export default {
 .limit {
   max-height: 400px;
   overflow-y: auto;
+  overflow-x: hidden;
 }
 </style>
