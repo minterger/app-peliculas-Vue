@@ -52,12 +52,12 @@ export default {
 
   .type {
     position: absolute;
-    top: 0px;
-    right: 0;
+    top: 5px;
+    left: 5px;
     vertical-align: middle;
-    padding: 5px 15px 5px 15px;
-    border-radius: 0px 0 0px 15px;
-    background-color: rgba(17, 23, 34, 0.837);
+    padding: 3px 12px 3px 12px;
+    border-radius: 17px;
+    background-color: rgb(0, 0, 0);
   }
   .type span {
     color: #fff;
