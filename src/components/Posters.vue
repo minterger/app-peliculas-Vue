@@ -38,10 +38,6 @@ export default {
     color: #72e9e9;
   }
 
-  img {
-    width: 100%;
-  }
-
   .card {
     position: relative;
   }

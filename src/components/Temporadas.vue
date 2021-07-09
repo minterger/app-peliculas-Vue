@@ -10,7 +10,7 @@
       </div>
       <div class="card-body">
         <div class=" d-grid gap-2" v-if="temporadas">
-          <router-link class="btn btn-dark" v-for="capitulo in capitulos" :key="capitulo" :to="capitulo.href">{{capitulo.title}}</router-link>
+          <router-link class="btn btn-info" v-for="capitulo in capitulos" :key="capitulo" :to="capitulo.href">{{capitulo.title}}</router-link>
         </div>
       </div>
     </div>

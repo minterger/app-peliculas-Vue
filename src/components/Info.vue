@@ -80,5 +80,6 @@ export default {
   }
   a {
     text-decoration: none;
+    color: #4C9BE8;
   }
 </style>

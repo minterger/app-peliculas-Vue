@@ -1,0 +1,53 @@
+
+$body-bg:                         #1D232B;
+$body-color:                      rgb(223, 223, 223);
+$font-size-base:                  .95rem;
+$dark:                              #161b21;
+$white:                             rgb(255, 255, 255);
+
+$dropdown-bg:                       #242c35;
+$dropdown-link-color:               rgb(223, 223, 223);
+$dropdown-link-hover-color:         rgb(223, 223, 223);
+$dropdown-link-hover-bg:            #323c48;
+
+$headings-color:                    #fff;
+$headings-font-weight:              400;
+
+$card-cap-bg:                       rgb(47, 52, 59);
+$card-border-color:                 rgb(29, 29, 29);
+$card-bg:                           #181c21;
+$nav-tabs-link-hover-border-color:  #657788;
+$nav-tabs-link-active-border-color: #15191D;
+$nav-tabs-link-active-color:        rgb(223, 223, 223);
+$nav-link-color:                    rgb(223, 223, 223);
+$nav-link-hover-color:              rgb(223, 223, 223);
+
+$primary:                           rgb(53, 72, 158);
+$secondary:                         rgb(78, 93, 108);
+$light:                             rgb(223, 223, 223);
+$info:                              #1c2a43;
+
+$enable-rounded:                    false;
+
+$navbar-dark-color:                 rgba($white, .65);
+$navbar-dark-hover-color:           rgba($white, .85);
+$navbar-dark-active-color:          $white;
+$navbar-dark-disabled-color:        rgba($white, .35);
+$navbar-dark-toggler-icon-bg:       url("data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'><path stroke='#{$navbar-dark-color}' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/></svg>");
+$navbar-dark-toggler-border-color:  rgba($white, .1);
+
+
+$pagination-color:                  $white;
+$pagination-focus-color:            rgba($white, .85);
+$pagination-hover-color:            rgba($white, .85);
+$pagination-disabled-color:         rgba($white, .50);
+$pagination-bg:                     rgb(53, 62, 75);
+$pagination-focus-bg:               rgb(42, 67, 104);
+$pagination-hover-bg:               rgb(39, 71, 119);
+$pagination-disabled-bg:            rgb(78, 90, 109);
+$pagination-border-color:           rgb(47, 52, 59);
+$pagination-focus-border-color:     rgb(33, 38, 44);
+$pagination-hover-border-color:     rgb(47, 52, 59);
+$pagination-disabled-border-color:  rgb(63, 68, 73);
+
+@import "../bootstrap/scss/bootstrap"
