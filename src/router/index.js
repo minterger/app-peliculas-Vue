@@ -114,6 +114,28 @@ const routes = [
     ]
   },
 
+  // more info routes 
+  {
+    path: '/actor/:actor',
+    name: 'Actor',
+    component: () => import(/* webpackChunkName: "Actor" */ '@/views/mas/Actor.vue')
+  },
+  {
+    path: '/director/:director',
+    name: 'Director',
+    component: () => import(/* webpackChunkName: "Director" */ '@/views/mas/Director.vue')
+  },
+  {
+    path: '/escritor/:escritor',
+    name: 'Escritor',
+    component: () => import(/* webpackChunkName: "Escritor" */ '@/views/mas/Escritor.vue')
+  },
+  {
+    path: '/pais/:pais',
+    name: 'Pais',
+    component: () => import(/* webpackChunkName: "Pais" */ '@/views/mas/Pais.vue')
+  },
+
   {
     path: '/404',
     name: '404',
