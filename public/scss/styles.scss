@@ -1,7 +1,7 @@
 
-$body-bg:                         #1c2129;
-$body-color:                      rgb(223, 223, 223);
-$font-size-base:                  .95rem;
+$body-bg:                           #1c2129;
+$body-color:                        rgb(223, 223, 223);
+$font-size-base:                    .95rem;
 $dark:                              #12161c;
 $white:                             rgb(255, 255, 255);
 
@@ -40,15 +40,15 @@ $navbar-dark-toggler-border-color:  rgba($white, .1);
 $pagination-color:                  $white;
 $pagination-focus-color:            rgba($white, .85);
 $pagination-hover-color:            rgba($white, .85);
-$pagination-disabled-color:         rgba($white, .50);
-$pagination-bg:                     rgb(53, 62, 75);
-$pagination-focus-bg:               rgb(42, 67, 104);
-$pagination-hover-bg:               rgb(39, 71, 119);
-$pagination-disabled-bg:            rgb(78, 90, 109);
-$pagination-border-color:           rgb(47, 52, 59);
-$pagination-focus-border-color:     rgb(33, 38, 44);
-$pagination-hover-border-color:     rgb(47, 52, 59);
-$pagination-disabled-border-color:  rgb(63, 68, 73);
+$pagination-disabled-color:         rgba($white, .35);
+$pagination-bg:                     rgb(15, 20, 26);
+$pagination-focus-bg:               rgba(53, 72, 158, 0.837);
+$pagination-hover-bg:               rgba(53, 72, 158, 0.837);
+$pagination-disabled-bg:            rgba(15, 20, 26, 0.671);
+$pagination-border-color:           rgb(18, 24, 31);
+$pagination-focus-border-color:     rgba(53, 72, 158);
+$pagination-hover-border-color:     rgba(53, 72, 158);
+$pagination-disabled-border-color:  rgb(18, 24, 31);
 
 $input-color:                       rgb(17, 17, 17);
 
