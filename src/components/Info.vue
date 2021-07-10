@@ -16,7 +16,7 @@
         <br />
         <span><strong>Generos: </strong>
           <span v-for="genero in info.generos" :key="genero.title">
-            <router-link :to="genero.href"> {{genero.name}} </router-link>, 
+            <router-link :title="genero.title" :to="genero.href"> {{genero.name}} </router-link>, 
           </span>
         </span>
       </div>
@@ -24,7 +24,7 @@
         <span class="d-block mb-2 desc" v-for="item in info.data" :key="item.index">
           <strong>{{item.name + ' '}} </strong>
           <span v-for="i in item.content" :key="i.index">
-            <span v-if="i.text"><a href="#">{{i.text}}</a>, </span>
+            <span v-if="i.text"><router-link :title="i.title" :to="i.href">{{i.text}}</router-link>, </span>
             <span v-else>{{i.fecha}}</span>
           </span>
           <br />
