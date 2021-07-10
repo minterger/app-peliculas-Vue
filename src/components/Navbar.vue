@@ -99,7 +99,7 @@
             class="form-control me-1 me-sm-2"
             type="text"
             v-model="search"
-            placeholder="Search"
+            placeholder="Buscar"
           />
           <button
             class="btn btn-secondary my-2 my-sm-0"
