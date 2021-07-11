@@ -27,7 +27,9 @@
         </div>
         <div class="card-body">
           <div class="ratio ratio-16x9">
-            <iframe :src="opReproductores[active]" allowfullscreen></iframe>
+            <iframe :title="['Reproductor de Video ' + (active + 1)]" :src="opReproductores[active]" allowfullscreen>
+              <p>Tu Navegador No Soporta iframes</p>
+            </iframe>
           </div>
         </div>
       </div>
