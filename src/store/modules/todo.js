@@ -22,7 +22,7 @@ export default {
           poster_link: "#",
           poster: {
             alt: "Cargando",
-            src: "/img/loading-img.gif"
+            src: "/img/loading--img.gif"
           },
           title: "Cargando",
           raiting: "10/10"
