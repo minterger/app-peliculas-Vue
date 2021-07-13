@@ -65,7 +65,7 @@ export default {
 
 <style scoped>
   img {
-    max-width: 245px;
+    width: 245px;
   }
   .col-img {
     min-height: 360px;
