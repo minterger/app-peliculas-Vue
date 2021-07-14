@@ -25,7 +25,8 @@
             </li>
           </ul>
         </div>
-        <div class="card-body" :id="$route.hash.replace('#', '')">
+        <!-- <div class="card-body" :id="$route.hash.replace('#', '')"> -->
+        <div class="card-body">
           <div class="ratio ratio-16x9">
             <iframe :title="['Reproductor de Video ' + (active + 1)]" :src="opReproductores[active]" allowfullscreen>
               <p>Tu Navegador No Soporta iframes</p>
