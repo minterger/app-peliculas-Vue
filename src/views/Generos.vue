@@ -1,6 +1,6 @@
 <template>
   <div class="container-md">
-    <h1 class="text-center my-3">Genero {{type}} de {{genero}}</h1>
+    <h1 class="text-center my-3 text-capitalize">Genero {{type}} de {{genero}}</h1>
     <div class="container text-center my-3 mb-3">
       <router-link exact-active-class="active"
         :to="{name: 'Generos', params: { genero: $route.params.genero }}"

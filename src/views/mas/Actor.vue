@@ -1,6 +1,6 @@
 <template>
   <div class="container-md">
-    <h1 class="text-center my-3">Actor {{type}}</h1>
+    <h1 class="text-center my-3 text-capitalize">Actor {{type}}</h1>
     <Posters />
     <Pagination />
   </div>

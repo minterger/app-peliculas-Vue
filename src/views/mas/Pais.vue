@@ -1,6 +1,6 @@
 <template>
   <div class="container-md">
-    <h1 class="text-center my-3">Pais {{type}}</h1>
+    <h1 class="text-center my-3 text-capitalize">Pais {{type}}</h1>
     <Posters />
     <Pagination />
   </div>
