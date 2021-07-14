@@ -2,7 +2,7 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import VueLazyload from '@jambonn/vue-lazyload'
+import {Lazyload} from '@vant/lazyload'
 
 const lazyOptions = {
   preLoad: 2,
@@ -11,4 +11,4 @@ const lazyOptions = {
   attempt: 2
 }
 
-createApp(App).use(VueLazyload, lazyOptions).use(store).use(router).mount('#app')
+createApp(App).use(Lazyload, lazyOptions).use(store).use(router).mount('#app')
