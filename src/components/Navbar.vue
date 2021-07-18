@@ -152,6 +152,10 @@ export default {
 </script>
 
 <style scoped>
+nav {
+  z-index: 99999999;
+}
+
 .bx {
   transform: scale(1.3);
 }
