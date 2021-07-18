@@ -95,6 +95,9 @@ export default {
     pagination: state => state.pagination,
     info: state => state.info,
     infoTitle: state => state.info.title,
+    ifInfo: state => {
+      return !state.info.title ? false : true
+    },
     reproductores: state => state.reproductores,
     temporadas: state => state.temporadas,
     statusSearch: state => state.statusSearch
