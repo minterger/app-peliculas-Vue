@@ -4,7 +4,7 @@
     <Reproductores />
     <div v-if="ifInfo" class="mt-4">
       <span class="fs-4 fw-bolder text">Comentarios</span>
-      <Disqus class="mt-2" :identifier="[$route.path]"/>
+      <Disqus class="mt-2" :identifier="[$route.path]" :url=""/>
       <Share />
     </div>
   </div>
@@ -21,6 +21,14 @@ export default {
     Info,
     Reproductores,
     Share
+  },
+  data() {
+    return {
+      pageConfig: {
+        url: window.url,
+        language: 'es_AR'
+      }
+    }
   },
   methods: {
     ...mapActions({
