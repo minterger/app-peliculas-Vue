@@ -2,7 +2,10 @@ import { createApp } from 'vue'
 import App from './App.vue'
 import router from './router'
 import store from './store'
-import {Lazyload} from '@vant/lazyload'
+import vueDisqus from "vue-disqus";
+import { createMetaManager, plugin as vueMetaPlugin } from 'vue-meta'
+import { Lazyload } from '@vant/lazyload'
+
 
 const lazyOptions = {
   preLoad: 2,
@@ -11,4 +14,8 @@ const lazyOptions = {
   attempt: 2
 }
 
-createApp(App).use(Lazyload, lazyOptions).use(store).use(router).mount('#app')
+const disqusConfig = { shortname: 'pelislatinoga' }
+
+const metaManager = createMetaManager()
+
+createApp(App).use(Lazyload, lazyOptions).use(store).use(vueDisqus, disqusConfig).use(router).use(metaManager).use(vueMetaPlugin).mount('#app')

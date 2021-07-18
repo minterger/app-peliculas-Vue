@@ -94,6 +94,7 @@ export default {
     posters: state => state.posters,
     pagination: state => state.pagination,
     info: state => state.info,
+    infoTitle: state => state.info.title,
     reproductores: state => state.reproductores,
     temporadas: state => state.temporadas,
     statusSearch: state => state.statusSearch

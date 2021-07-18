@@ -2,6 +2,11 @@
   <div class="container-md">
     <Info />
     <Reproductores />
+    <div class="mt-4">
+      <span class="fs-4 fw-bolder text">Comentarios</span>
+      <Disqus class="mt-2" :identifier="[$route.path]"/>
+    </div>
+    <Share />
   </div>
 </template>
 
@@ -9,11 +14,13 @@
 import {mapActions} from 'vuex'
 import Info from '@/components/Info.vue'
 import Reproductores from '@/components/Reproductores.vue'
+import Share from '@/components/Share.vue'
 
 export default {
   components: {
     Info,
-    Reproductores
+    Reproductores,
+    Share
   },
   methods: {
     ...mapActions({

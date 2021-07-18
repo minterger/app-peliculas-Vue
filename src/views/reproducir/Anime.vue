@@ -2,6 +2,7 @@
   <div class="container-md">
     <Info />
     <Temporadas />
+    <Share />
   </div>
 </template>
 
@@ -9,11 +10,14 @@
 import {mapActions, mapMutations} from 'vuex'
 import Info from '@/components/Info.vue'
 import Temporadas from '@/components/Temporadas.vue'
+import Share from '@/components/Share.vue'
+
 
 export default {
   components: {
     Info,
-    Temporadas
+    Temporadas,
+    Share
   },
   methods: {
     ...mapActions({
