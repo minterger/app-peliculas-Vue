@@ -11,7 +11,7 @@
 import {mapActions, mapGetters} from 'vuex'
 import Info from '@/components/Info.vue'
 import Reproductores from '@/components/Reproductores.vue'
-import Comments from '@/csomponents/Comments.vue'
+import Comments from '@/components/Comments.vue'
 import Share from '@/components/Share.vue'
 
 export default {
