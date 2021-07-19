@@ -27,9 +27,6 @@ export default {
   },
   computed: {
     ...mapGetters({'infoTitle': 'todo/infoTitle'}),
-  },
-  created() {
-    console.log(this.$route.params);
   }
 }
 </script>
