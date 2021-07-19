@@ -18,4 +18,11 @@ const disqusConfig = { shortname: 'pelislatinoga' }
 
 const metaManager = createMetaManager()
 
-createApp(App).use(Lazyload, lazyOptions).use(store).use(vueDisqus, disqusConfig).use(router).use(metaManager).use(vueMetaPlugin).mount('#app')
+createApp(App)
+  .use(Lazyload, lazyOptions)
+  .use(store)
+  .use(vueDisqus, disqusConfig)
+  .use(router)
+  .use(metaManager)
+  .use(vueMetaPlugin)
+  .mount('#app')
