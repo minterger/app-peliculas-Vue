@@ -52,13 +52,9 @@ export default {
     font-size: 1.7em;
   }
 
-  .share:hover {
-    transform: scale(1.2);
-  }
-
-  .active-share {
+  .share:hover, .active-share {
     background-color: #090a0c;
-    transform: scale(1.13);
+    transform: scale(1.2);
   }
 
   .share-div {
