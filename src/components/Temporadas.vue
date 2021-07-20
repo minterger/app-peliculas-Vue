@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-3">
+  <div class="my-3">
     <div class="card text-center" v-if="temporadas.seasons">
       <div class="card-header">
         <ul class="nav nav-tabs card-header-tabs">

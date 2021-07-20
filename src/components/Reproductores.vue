@@ -1,5 +1,5 @@
 <template>
-  <div class="mt-4">
+  <div class="mt-3">
     
     <!-- Vista de la tarjeta de reproductores -->
     <div v-if="opReproductores.length">
@@ -29,9 +29,9 @@
     </div>
 
     <!-- vista de opciones para capitulos -->
-    <div class="text-center">
+    <div v-if="navegacion" class="text-center mt-3">
       <router-link
-        class="btn btn-primary mt-4 mx-1"
+        class="btn btn-primary mt-1 mx-1"
         v-for="item in navegacion"
         :key="item"
         :to="item.href"
