@@ -1,15 +1,7 @@
 <template>
-  <div class="mt-3">
-    <div class="text-center">
-      <router-link
-        class="btn btn-primary mb-3 mx-1"
-        v-for="item in navegacion"
-        :key="item"
-        :to="item.href"
-      >
-        {{ item.text }}
-      </router-link>
-    </div>
+  <div class="mt-4">
+    
+    <!-- Vista de la tarjeta de reproductores -->
     <div v-if="opReproductores.length">
       <div class="card text-center">
         <div class="card-header">
@@ -34,6 +26,18 @@
           </div>
         </div>
       </div>
+    </div>
+
+    <!-- vista de opciones para capitulos -->
+    <div class="text-center">
+      <router-link
+        class="btn btn-primary mt-4 mx-1"
+        v-for="item in navegacion"
+        :key="item"
+        :to="item.href"
+      >
+        {{ item.text }}
+      </router-link>
     </div>
   </div>
 </template>
