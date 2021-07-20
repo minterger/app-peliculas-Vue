@@ -1,5 +1,5 @@
 <template>
-  <div class="d-flex justify-content-center mt-4" v-if="pagination">
+  <div class="d-flex justify-content-center mb-4" v-if="pagination">
     <ul class="pagination pagination-sm" v-if="pagination.lastPage > 1">
       <li
         class="page-item"

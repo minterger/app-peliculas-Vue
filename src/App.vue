@@ -20,7 +20,7 @@ export default {
 
 <style>
   body {
-    min-height: calc(100vh - 3em);
+    min-height: 100vh;
     position: relative;
     padding: 0 0 3em 0;
     margin: 0;

@@ -9,9 +9,10 @@
 <style scoped>
   div.navbar {
     position: absolute;
-    bottom: -3em;
+    bottom: 0;
     left: 0px;
     margin: 0px;
     width: 100%;
+    height: 3em;
   }
 </style>
