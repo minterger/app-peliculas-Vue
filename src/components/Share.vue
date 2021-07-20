@@ -1,7 +1,7 @@
 <template>
   <div>
-    <div class="share" @click="toggle"><i class='bx bxs-share-alt' ></i></div>
-    <div class="share-div" :class="{hide: active}">
+    <div class="share" :class="{'active-share': !active}" @click="toggle"><i class='bx bxs-share-alt' ></i></div>
+    <div class="share-div" :class="{'hide': active}">
       <a class="facebook" :href="[`https://www.facebook.com/sharer.php?u=${url}`]"><i class='bx bxl-facebook'></i></a>
       <a class="twitter" :href="[`https://twitter.com/intent/tweet?text=ver ${infoTitle} online en pelislatino.ga&url=${url}&hashtags=pelislatino`]"><i class='bx bxl-twitter' ></i></a>
       <a class="whatsapp" :href="[`https://api.whatsapp.com/send?text=ver ${infoTitle} online en ${url}`]"><i class='bx bxl-whatsapp' ></i></a>
@@ -44,7 +44,7 @@ export default {
     width: 50px;
     height: 50px;
     cursor: pointer;
-    transition: transform .3s;
+    transition: transform .3s, background-color .3s;
     z-index: 999999;
   }
   
@@ -54,6 +54,11 @@ export default {
 
   .share:hover {
     transform: scale(1.2);
+  }
+
+  .active-share {
+    background-color: #090a0c;
+    transform: scale(1.13);
   }
 
   .share-div {
@@ -82,39 +87,51 @@ export default {
     height: 25%;
     text-align: center;
     line-height: 50px;
-    transition: transform .4s, background-color .4s;
+    transition: background-color .4s;
+  }
+
+  .share-div a i {
+    transition: transform .4s;
   }
 
   .facebook {
     background-color: rgb(66, 103, 178);
   }
   .facebook:hover {
-    background-color: rgba(66, 103, 178, .8);
-    transform: scale(1.1);
+    background-color: rgb(66, 93, 178);
+  }
+  .facebook:hover i {
+    transform: scale(1.15);
   }
 
   .twitter {
     background-color: rgb(29, 161, 242);
   }
   .twitter:hover {
-    background-color: rgba(29, 160, 242, .8);
-    transform: scale(1.1);
+    background-color: rgba(29, 151, 242);
+  }
+  .twitter:hover i {
+    transform: scale(1.15);
   }
 
   .whatsapp {
     background-color: rgb(37, 211, 102);
   }
   .whatsapp:hover {
-    background-color: rgb(37, 211, 102, .8);
-    transform: scale(1.1);
+    background-color: rgb(37, 201, 102);
+  }
+  .whatsapp:hover i {
+    transform: scale(1.15);
   }
 
   .linkedin {
     background-color: rgb(0, 114, 177);
   }
   .linkedin:hover {
-    background-color: rgb(0, 114, 177, .8);
-    transform: scale(1.1);
+    background-color: rgb(0, 104, 177);
+  }
+  .linkedin:hover i {
+    transform: scale(1.15);
   }
 
 </style>
