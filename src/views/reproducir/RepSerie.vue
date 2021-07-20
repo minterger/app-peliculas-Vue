@@ -2,7 +2,7 @@
   <div class="container-md">
     <Info />
     <Reproductores />
-    <!-- <Comments /> -->
+    <Comments />
     <Share />
   </div>
 </template>
