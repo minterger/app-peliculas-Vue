@@ -72,7 +72,7 @@ export default {
 
   .hide {
     height: 0px;
-    transform: translateY(50px);
+    transform: translateY(50px) scale(0);
   }
   
   .share-div a {
