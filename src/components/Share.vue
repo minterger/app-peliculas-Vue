@@ -44,7 +44,7 @@ export default {
     width: 50px;
     height: 50px;
     cursor: pointer;
-    transition: transform .3s, background-color .3s;
+    transition: transform .25s, background-color .3s;
     z-index: 999999;
   }
   
@@ -54,7 +54,7 @@ export default {
 
   .share:hover, .active-share {
     background-color: #090a0c;
-    transform: scale(1.2);
+    transform: scale(1.15);
   }
 
   .share-div {
@@ -67,7 +67,7 @@ export default {
     position: fixed;
     bottom: 90px;
     right: 20px;
-    transition: transform .5s, height .5s;
+    transition: transform .3s, height .3s;
   }
 
   .hide {
@@ -87,7 +87,7 @@ export default {
   }
 
   .share-div a i {
-    transition: transform .4s;
+    transition: transform .3s;
   }
 
   .facebook {
