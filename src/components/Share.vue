@@ -6,6 +6,10 @@
       <a class="twitter" title="Compartir en Twitter" :href="[`https://twitter.com/intent/tweet?text=Mira ${infoTitle} online con la mejor calidad en PelisLatino&url=${url}&hashtags=pelislatino`]" target="_blank"><i class='bx bxl-twitter' ></i></a>
       <a class="whatsapp" title="Compartir en Whatsapp" :href="[`https://api.whatsapp.com/send?text=Mira ${infoTitle} online con la mejor calidad en PelisLatino, link: ${url}`]" target="_blank"><i class='bx bxl-whatsapp' ></i></a>
       <a class="linkedin" title="Compartir en Linkedin" :href="[`https://www.linkedin.com/sharing/share-offsite/?url=${url}`]" target="_blank"><i class='bx bxl-linkedin' ></i></a>
+      <a class="url" title="Copiar Url" @click.prevent="getlink" :href="url"><i class='bx bx-link-alt'></i></a>
+    </div>
+    <div>
+      <span class="copy" :class="{'hide-url': !copyAlert}">Copiado</span>
     </div>
   </div>
 </template>
@@ -17,12 +21,25 @@ export default {
   data() {
     return {
       url: window.location.href,
-      active: true
+      active: true,
+      copyAlert: false
     }
   },
   methods: {
     toggle() {
       this.active = !this.active
+    },
+    getlink() {
+      var aux = document.createElement("input");
+      aux.setAttribute("value", this.url);
+      document.body.appendChild(aux);
+      aux.select();
+      document.execCommand("copy");
+      document.body.removeChild(aux);
+      this.copyAlert = true;
+      setTimeout(() => {
+        this.copyAlert = false;
+      }, 1500)
     }
   },
   watch: {
@@ -63,29 +80,30 @@ export default {
   }
 
   .share-div {
+    z-index: 99999;
     border-radius: 10px;
     display: flex;
     flex-direction: column;
     width: 50px;
-    height: 200px;
+    height: 250px;
     overflow: hidden;
     position: fixed;
     bottom: 90px;
     right: 20px;
-    transition: transform .3s, height .3s;
+    transition: transform .3s, height .3s, visibility .3s;
   }
 
   .hide {
     height: 0px;
     transform: translateY(50px) scale(0);
+    visibility: hidden;
   }
   
   .share-div a {
-    z-index: 999;
     color: #fff;
     font-size: 1.6em;
     width: 100%;
-    height: 25%;
+    height: 20%;
     text-align: center;
     line-height: 50px;
     transition: background-color .4s;
@@ -127,12 +145,44 @@ export default {
 
   .linkedin {
     background-color: rgb(0, 114, 177);
-  }
+    }
   .linkedin:hover {
     background-color: rgb(0, 104, 177);
-  }
+    }
   .linkedin:hover i {
     transform: scale(1.15);
+  }
+
+  .url {
+    background-color: rgb(38, 55, 63);
+  }
+  .url:hover {
+    background-color: rgb(38, 45, 63);
+  }
+  .url:hover i {
+    transform: scale(1.15);
+  }
+
+  .copy {
+    z-index: 99;
+    position: fixed;
+    color: #fff;
+    overflow: hidden;
+    background-color: crimson;
+    border-radius: 5px;
+    width: 75px;
+    height: 30px;
+    line-height: 30px;
+    text-align: center;
+    bottom: 100px;
+    right: 80px;
+    transition: transform .3s, width .3s, visibility .3s;
+  }
+  .hide-url {
+    /* transform: translateX(20px); */
+    visibility: hidden;
+    transform: scaleY(0);
+    /* width: 0; */
   }
 
 </style>
