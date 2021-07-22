@@ -25,6 +25,11 @@ export default {
       this.active = !this.active
     }
   },
+  watch: {
+    '$route.path'() {
+      this.url = window.location.href
+    }
+  },
   computed: {
     ...mapGetters({'infoTitle': 'todo/infoTitle'}),
   }
