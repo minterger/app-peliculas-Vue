@@ -27,6 +27,7 @@ export default {
   },
   methods: {
     toggle() {
+      this.copyAlert = false;
       this.active = !this.active
     },
     getlink() {
