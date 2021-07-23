@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="share" :class="{'active-share': !active}" @click="toggle"><i class='bx bxs-share-alt' ></i></div>
+    <div class="share" :class="{'active-share': !active}" title="Compartir" @click="toggle"><i class='bx bxs-share-alt' ></i></div>
     <div class="share-div" :class="{'hide': active}">
       <a class="facebook" title="Compartir en Facebook" :href="[`https://www.facebook.com/sharer.php?u=${url}`]" target="_blank"><i class='bx bxl-facebook'></i></a>
       <a class="twitter" title="Compartir en Twitter" :href="[`https://twitter.com/intent/tweet?text=Mira ${infoTitle} online con la mejor calidad en PelisLatino&url=${url}&hashtags=pelislatino`]" target="_blank"><i class='bx bxl-twitter' ></i></a>
