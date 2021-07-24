@@ -2,10 +2,10 @@
   <div>
     <div class="share" :class="{'active-share': !active}" title="Compartir" @click="toggle"><i class='bx bxs-share-alt' ></i></div>
     <div class="share-div" :class="{'hide': active}">
-      <a class="facebook" title="Compartir en Facebook" :href="[`https://www.facebook.com/sharer.php?u=${url}`]" target="_blank"><i class='bx bxl-facebook'></i></a>
-      <a class="twitter" title="Compartir en Twitter" :href="[`https://twitter.com/intent/tweet?text=Mira ${infoTitle} online con la mejor calidad en PelisLatino&url=${url}&hashtags=pelislatino`]" target="_blank"><i class='bx bxl-twitter' ></i></a>
-      <a class="whatsapp" title="Compartir en Whatsapp" :href="[`https://api.whatsapp.com/send?text=Mira ${infoTitle} online con la mejor calidad en PelisLatino, link: ${url}`]" target="_blank"><i class='bx bxl-whatsapp' ></i></a>
-      <a class="linkedin" title="Compartir en Linkedin" :href="[`https://www.linkedin.com/sharing/share-offsite/?url=${url}`]" target="_blank"><i class='bx bxl-linkedin' ></i></a>
+      <a class="facebook" title="Compartir en Facebook" rel="noreferrer" :href="[`https://www.facebook.com/sharer.php?u=${url}`]" target="_blank"><i class='bx bxl-facebook'></i></a>
+      <a class="twitter" title="Compartir en Twitter" rel="noreferrer" :href="[`https://twitter.com/intent/tweet?text=Mira ${infoTitle} online con la mejor calidad en PelisLatino&url=${url}&hashtags=pelislatino`]" target="_blank"><i class='bx bxl-twitter' ></i></a>
+      <a class="whatsapp" title="Compartir en Whatsapp" rel="noreferrer" :href="[`https://api.whatsapp.com/send?text=Mira ${infoTitle} online con la mejor calidad en PelisLatino, link: ${url}`]" target="_blank"><i class='bx bxl-whatsapp' ></i></a>
+      <a class="linkedin" title="Compartir en Linkedin" rel="noreferrer" :href="[`https://www.linkedin.com/sharing/share-offsite/?url=${url}`]" target="_blank"><i class='bx bxl-linkedin' ></i></a>
       <a class="url" title="Copiar Url" @click.prevent="getlink" :href="url"><i class='bx bx-link-alt'></i></a>
     </div>
     <div>
