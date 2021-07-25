@@ -45,7 +45,7 @@ export default {
     }
   },
   watch: {
-    '$route.path'() {
+    '$route'() {
       this.url = window.location.href
     }
   },
@@ -86,26 +86,23 @@ export default {
     border-radius: 10px;
     display: flex;
     flex-direction: column;
-    width: 50px;
-    height: 250px;
     overflow: hidden;
     position: fixed;
-    bottom: 90px;
+    bottom: 85px;
     right: 20px;
-    transition: transform .3s, height .3s, visibility .3s;
+    transition: transform .3s, visibility .3s;
   }
 
   .hide {
-    height: 0px;
-    transform: translateY(50px) scale(0);
     visibility: hidden;
+    transform: translateY(150px) scale(0);
   }
   
   .share-div a {
     color: #fff;
     font-size: 1.6em;
-    width: 100%;
-    height: 20%;
+    width: 50px;
+    height: 50px;
     text-align: center;
     line-height: 50px;
     transition: background-color .4s;
