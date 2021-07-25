@@ -12,7 +12,6 @@
     "core-js": "^3.15.2",
     "vue": "^3.1.4",
     "vue-disqus": "^5.1.0",
-    "vue-lazyload-next": "^0.0.2",
     "vue-meta": "^3.0.0-alpha.9",
     "vue-router": "^4.0.10",
     "vuex": "^4.0.0-0"
