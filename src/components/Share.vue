@@ -173,7 +173,7 @@ export default {
     height: 30px;
     line-height: 30px;
     text-align: center;
-    bottom: 100px;
+    bottom: 95px;
     right: 80px;
     transition: transform .3s, width .3s, visibility .3s;
   }
