@@ -1,8 +1,10 @@
 <template>
   <div v-if="ifInfo" class="mt-4">
-    <span class="fs-4 fw-bolder text">Comentarios</span>
+    <span class="fs-4 fw-bolder text me-3">Comentarios</span>
+    <button class="btn btn-danger btn-sm" @click="comments">{{btnMsg}}</button>
     <div class="mt-2">
       <Disqus
+        v-show="hiddeComments"
         :key="keyComponent"
         :identifier="$route.path"
         lang="es_AR"
@@ -18,12 +20,23 @@ export default {
   name: 'Comments',
   data() {
     return {
-      keyComponent: this.$route.path
+      keyComponent: this.$route.path,
+      hiddeComments: true,
+      btnMsg: 'Ocultar Comentarios'
     }
   },
   methods: {
-    reset() {
-      this.$disqus.reset()
+    // reset() {
+    //   this.$disqus.reset()
+    // },
+    comments() {
+      if (this.hiddeComments === true) {
+        this.hiddeComments = false
+        this.btnMsg = 'Mostrar Comentarios'
+      } else {
+        this.hiddeComments = true
+        this.btnMsg = 'Ocultar Comentarios'
+      }
     }
   },
   watch: {
