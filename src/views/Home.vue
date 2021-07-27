@@ -1,7 +1,8 @@
 <template>
   <div class="container-md">
-    <h1 class="text-center mt-3 mb-2">Inicio</h1>
-    <div class="container text-center my-3 mb-3">
+    <h1 class="text-center mt-3 mb-3">Inicio</h1>
+    <Carousel />
+    <div class="container text-center mt-1 mb-3">
       <router-link exact-active-class="active"
         to="/"
         class="btn btn-primary my-1 mx-1">Ultimo Año</router-link>
@@ -16,10 +17,12 @@
 <script>
 import {mapActions} from 'vuex'
 import Posters from '@/components/Posters.vue'
+import Carousel from "@/components/Carousel.vue";
 
 export default {
   components: {
-    Posters
+    Posters,
+    Carousel
   },
   methods: {
     ...mapActions({

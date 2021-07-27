@@ -8,7 +8,8 @@ export default {
     info: {},
     reproductores: [],
     temporadas: {},
-    statusSearch: false
+    statusSearch: false,
+    posterLastUploaded: []
   },
   mutations: {
     updatePosters(state, data) {
@@ -38,8 +39,11 @@ export default {
     updateTemporadas(state, data) {
       state.temporadas = data || {}
     },
-    updateStatusSearch(state , status) {
+    updateStatusSearch(state, status) {
       state.statusSearch = status || false
+    },
+    updateLastUploaded(state, data) {
+      state.posterLastUploaded = data
     }
   },
   actions: {
@@ -88,6 +92,10 @@ export default {
     async getTemporadas({commit}, {type, info}) {
       const res = await axios.get(`${process.env.VUE_APP_API_URL}${type}/temporadas/${info}`)
       commit('updateTemporadas', res.data)
+    },
+    async getLastUploaded({commit}) {
+      const res = await axios.get(`${process.env.VUE_APP_API_URL}/last`)
+      commit('updateLastUploaded', res.data)
     }
   },
   getters: {
@@ -100,6 +108,7 @@ export default {
     },
     reproductores: state => state.reproductores,
     temporadas: state => state.temporadas,
-    statusSearch: state => state.statusSearch
+    statusSearch: state => state.statusSearch,
+    posterLastUploaded: state => state.posterLastUploaded
   }
 }
