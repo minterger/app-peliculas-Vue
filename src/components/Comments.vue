@@ -2,7 +2,7 @@
   <div v-if="ifInfo" class="mt-4">
     <span class="fs-4 fw-bolder text me-3">Comentarios</span>
     <button class="btn btn-danger btn-sm" @click="comments">{{btnMsg}}</button>
-    <div class="mt-2">
+    <div :class="[ hiddeComments ? 'mt-2' : 'mt-4']">
       <Disqus
         v-show="hiddeComments"
         :key="keyComponent"
