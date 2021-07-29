@@ -37,7 +37,6 @@ export default {
   },
   created() {
     this.getLastUploaded()
-    console.log(this.posterLast);
   }
 }
 </script>
