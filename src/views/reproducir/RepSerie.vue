@@ -8,7 +8,7 @@
 </template>
 
 <script>
-import {mapActions, mapGetters} from 'vuex'
+import {mapActions} from 'vuex'
 import Info from '@/components/Info.vue'
 import Reproductores from '@/components/Reproductores.vue'
 import Comments from '@/components/Comments.vue'
@@ -26,9 +26,6 @@ export default {
       'infoPoster': 'todo/infoPoster',
       'getReproductores': 'todo/getReproductores'
     })
-  },
-  computed: {
-    ...mapGetters({'ifInfo': 'todo/ifInfo'})
   },
   created() {
     this.infoPoster({type: '/serie', info: this.$route.params.serie})

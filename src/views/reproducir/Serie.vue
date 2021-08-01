@@ -23,15 +23,15 @@ export default {
       'infoPoster': 'todo/infoPoster',
       'getTemporadas': 'todo/getTemporadas'
     }),
-    ...mapMutations({
-      'updateInfo': 'todo/updateInfo',
-      'updateTemporadas': 'todo/updateTemporadas'  
-    })
+    // ...mapMutations({
+    //   'updateInfo': 'todo/updateInfo',
+    //   'updateTemporadas': 'todo/updateTemporadas'  
+    // })
   },
   created() {
-    this.updateInfo()
+    // this.updateInfo()
     this.infoPoster({type: '/serie', info: this.$route.params.serie})
-    this.updateTemporadas()
+    // this.updateTemporadas()
     this.getTemporadas({type: '/serie', info: this.$route.params.serie})
   }
 }
