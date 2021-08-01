@@ -15,14 +15,14 @@
       :key="poster.i"
       :title="poster.title"
       :image="poster.poster"
-      @click.prevent="$router.push(poster.poster_link)"
+      @click.prevent="goToLink(poster.poster_link)"
       :link="poster.poster_link"
     />
   </vueper-slides>
 </template>
 
 <script>
-import { mapActions, mapGetters } from "vuex";
+import { mapActions, mapGetters, mapMutations } from "vuex";
 import { VueperSlides, VueperSlide } from 'vueperslides'
 import 'vueperslides/dist/vueperslides.css'
 
@@ -53,7 +53,16 @@ export default {
     VueperSlides, VueperSlide
   },
   methods: {
-    ...mapActions({getLastUploaded: 'todo/getLastUploaded'})
+    ...mapActions({getLastUploaded: 'todo/getLastUploaded'}),
+    ...mapMutations({
+      updateInfo: 'todo/updateInfo',
+      updateReproductores: 'todo/updateReproductores'
+    }),
+    goToLink(link) {
+      this.$router.push(link)
+      this.updateInfo()
+      this.updateReproductores()
+    }
   },
   computed: {
     ...mapGetters({posterLast: 'todo/posterLastUploaded'})
