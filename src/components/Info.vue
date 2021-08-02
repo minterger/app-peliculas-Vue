@@ -29,6 +29,9 @@
           </span>
           <br />
         </span>
+        <span class="raiting fst-normal">
+          <i class='bx bxs-star'></i> {{info.raiting}}
+        </span>
       </div>
     </div>
   </div>
@@ -81,5 +84,12 @@ export default {
   a {
     text-decoration: none;
     color: #4C9BE8;
+  }
+
+  .bx {
+    color: #ffe100;
+  }
+  .raiting {
+    color: #72e9e9;
   }
 </style>
