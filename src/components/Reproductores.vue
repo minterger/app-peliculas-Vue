@@ -12,8 +12,7 @@
                 :class="[n === active + 1 ? 'active' : '']"
                 aria-current="true"
                 :href="[`#opc${n}`]"
-                >Opcion {{ n }}</a
-              >
+                >Opcion {{ n }}</a>
             </li>
           </ul>
         </div>
