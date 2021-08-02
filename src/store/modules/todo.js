@@ -103,8 +103,8 @@ export default {
     pagination: state => state.pagination,
     info: state => state.info,
     infoTitle: state => state.info.title,
-    ifInfo: state => {
-      return !state.info.title ? false : true
+    ifReproductores: state => {
+      return state.reproductores.reproductores ? true : false
     },
     reproductores: state => state.reproductores,
     temporadas: state => state.temporadas,

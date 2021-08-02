@@ -1,5 +1,5 @@
 <template>
-  <div v-if="ifInfo" class="mt-4">
+  <div v-if="ifReproductores" class="mt-4">
     <span class="fs-4 fw-bolder text me-3">Comentarios (NO SPOILER - NO SPAM)</span>
     <button class="btn btn-danger btn-sm" @click="comments">{{btnMsg}}</button>
     <div :class="[ hiddeComments ? 'mt-2' : 'mt-4']">
@@ -45,7 +45,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({'ifInfo': 'todo/ifInfo'})
+    ...mapGetters({'ifReproductores': 'todo/ifReproductores'})
   },
 }
 </script>
