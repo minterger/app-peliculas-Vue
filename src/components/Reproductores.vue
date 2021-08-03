@@ -16,7 +16,6 @@
             </li>
           </ul>
         </div>
-        <!-- <div class="card-body" :id="$route.hash.replace('#', '')"> -->
         <div class="card-body">
           <div class="ratio ratio-16x9">
             <iframe :title="['Reproductor de Video ' + (active + 1)]" :src="opReproductores[active]" allowfullscreen>
@@ -28,7 +27,7 @@
     </div>
 
     <!-- vista de opciones para capitulos -->
-    <div v-if="navegacion" class="text-center mt-3">
+    <div v-if="navegacion" class="d-grid d-sm-block mx-auto col-sm-12 col-8 text-center mt-3">
       <router-link
         class="btn btn-primary mt-1 mx-1"
         v-for="item in navegacion"
