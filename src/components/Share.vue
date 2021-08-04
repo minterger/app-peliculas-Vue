@@ -90,12 +90,13 @@ export default {
     position: fixed;
     bottom: 85px;
     right: 20px;
-    transition: transform .3s, visibility .3s;
+    transition: transform .3s, opacity .2s, visibility .3s;
   }
 
   .hide {
     visibility: hidden;
-    transform: translateY(150px) scale(0);
+    transform: translateY(150px) scale(.1);
+    opacity: 0;
   }
   
   .share-div a {
@@ -107,7 +108,9 @@ export default {
     line-height: 50px;
     transition: background-color .4s;
   }
-
+  .share-div a:hover i {
+transform: rotate(10deg)
+  }
   .share-div a i {
     transition: transform .3s;
   }
@@ -118,18 +121,12 @@ export default {
   .facebook:hover {
     background-color: rgb(66, 93, 178);
   }
-  .facebook:hover i {
-    transform: scale(1.15);
-  }
 
   .twitter {
     background-color: rgb(29, 161, 242);
   }
   .twitter:hover {
     background-color: rgba(29, 151, 242);
-  }
-  .twitter:hover i {
-    transform: scale(1.15);
   }
 
   .whatsapp {
@@ -138,18 +135,12 @@ export default {
   .whatsapp:hover {
     background-color: rgb(37, 201, 102);
   }
-  .whatsapp:hover i {
-    transform: scale(1.15);
-  }
 
   .linkedin {
     background-color: rgb(0, 114, 177);
-    }
+  }
   .linkedin:hover {
     background-color: rgb(0, 104, 177);
-    }
-  .linkedin:hover i {
-    transform: scale(1.15);
   }
 
   .url {
@@ -157,9 +148,6 @@ export default {
   }
   .url:hover {
     background-color: rgb(38, 45, 63);
-  }
-  .url:hover i {
-    transform: scale(1.15);
   }
 
   .copy {
@@ -175,13 +163,12 @@ export default {
     text-align: center;
     bottom: 95px;
     right: 80px;
-    transition: transform .3s, width .3s, visibility .3s;
+    transition: transform .4s, opacity .3s, visibility .3s;
   }
   .hide-url {
-    /* transform: translateX(20px); */
     visibility: hidden;
-    transform: scaleY(0);
-    /* width: 0; */
+    opacity: 0;
+    transform: translateX(20px);
   }
 
 </style>
