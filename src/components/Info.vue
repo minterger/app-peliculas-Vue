@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import {mapGetters} from 'vuex'
+import {mapGetters, mapActions} from 'vuex'
 
 export default {
   data() {
@@ -46,6 +46,21 @@ export default {
     }
   },
   methods: {
+    ...mapActions({infoPoster: 'todo/infoPoster'})
+  },
+  watch: {
+    '$route.params.name'(info) {
+      const name = this.$route.name
+      if (info) {
+        if (name == 'Pelicula') {
+          this.infoPoster({type: '/pelicula', info})
+        } else if (name == 'Anime' || name == 'AnimeRep') {
+          this.infoPoster({type: '/anime', info})
+        } else if (name == 'Serie' || name == 'SerieRep') {
+          this.infoPoster({type: '/serie', info})
+        }
+      }
+    }
   },
   computed: {
     ...mapGetters({
