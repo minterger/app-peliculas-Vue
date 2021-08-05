@@ -28,7 +28,7 @@ const routes = [
     ]
   },
   {
-    path: '/pelicula/:pelicula',
+    path: '/pelicula/:name',
     name: 'Pelicula',
     component: () => import (/* webpackChunkName: "Pelicula" */'@/views/reproducir/Pelicula.vue')
   },
@@ -47,12 +47,12 @@ const routes = [
     ]
   },
   {
-    path: '/serie/:serie',
+    path: '/serie/:name',
     name: 'Serie',
     component: () => import(/* webpackChunkName: "Serie" */'@/views/reproducir/Serie.vue')
   },
   {
-    path: '/serie/:serie/temporada/:temp/capitulo/:cap',
+    path: '/serie/:name/temporada/:temp/capitulo/:cap',
     name: 'SerieRep',
     component: () => import(/* webpackChunkName: "SerieRep" */'@/views/reproducir/RepSerie.vue')
   },
@@ -71,12 +71,12 @@ const routes = [
     ]
   },
   {
-    path: '/anime/:anime',
+    path: '/anime/:name',
     name: 'Anime',
     component: () => import(/* webpackChunkName: "Anime" */'@/views/reproducir/Anime.vue')
   },
   {
-    path: '/anime/:anime/temporada/:temp/capitulo/:cap',
+    path: '/anime/:name/temporada/:temp/capitulo/:cap',
     name: 'AnimeRep',
     component: () => import(/* webpackChunkName: "AnimeRep" */'@/views/reproducir/RepAnime.vue')
   },
