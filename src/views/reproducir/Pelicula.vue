@@ -26,15 +26,13 @@ export default {
       'infoPoster': 'todo/infoPoster',
       'getReproductores': 'todo/getReproductores'
     }),
-    // ...mapMutations({'updateInfo': 'todo/updateInfo'})
   },
   computed: {
     ...mapGetters({'ifInfo': 'todo/ifInfo'})
   },
   created() {
-    // this.updateInfo()
-    this.infoPoster({type: '/pelicula', info: this.$route.params.pelicula})
-    this.getReproductores({type: '/pelicula/rep', info: this.$route.params.pelicula})
+    this.infoPoster({type: '/pelicula', info: this.$route.params.name})
+    this.getReproductores({type: '/pelicula/rep', info: this.$route.params.name})
   }
 }
 </script>

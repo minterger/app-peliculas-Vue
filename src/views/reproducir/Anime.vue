@@ -24,16 +24,10 @@ export default {
       'infoPoster': 'todo/infoPoster',
       'getTemporadas': 'todo/getTemporadas'
     }),
-    // ...mapMutations({
-    //   'updateInfo': 'todo/updateInfo',
-    //   'updateTemporadas': 'todo/updateTemporadas'
-    // })
   },
   created() {
-    // this.updateInfo()
-    this.infoPoster({type: '/anime', info: this.$route.params.anime})
-    // this.updateTemporadas()
-    this.getTemporadas({type: '/anime', info: this.$route.params.anime})
+    this.infoPoster({type: '/anime', info: this.$route.params.name})
+    this.getTemporadas({type: '/anime', info: this.$route.params.name})
   }
 }
 </script>

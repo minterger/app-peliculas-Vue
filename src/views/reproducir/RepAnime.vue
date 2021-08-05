@@ -28,8 +28,8 @@ export default {
     })
   },
   created() {
-    this.infoPoster({type: '/anime', info: this.$route.params.anime})
-    this.getReproductores({type: '/anime', info: `${this.$route.params.anime}/temporada/${this.$route.params.temp}/capitulo/${this.$route.params.cap}`})
+    this.infoPoster({type: '/anime', info: this.$route.params.name})
+    this.getReproductores({type: '/anime', info: `${this.$route.params.name}/temporada/${this.$route.params.temp}/capitulo/${this.$route.params.cap}`})
   }
 }
 </script>
