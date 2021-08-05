@@ -70,14 +70,19 @@ export default {
     },
     '$route.path'() {
       const info = this.$route.path
-      if (info.match(/\/\w{5}\/((\w+\-)+)?(\w+)\//g)) {
-        this.updateReproductores({ info });
+      if (this.$route.params.name) {
+        if (this.$route.name == 'Pelicula') {
+          this.getReproductores({type: '/pelicula/rep', info: this.$route.params.name})
+        } else if (info.match(/\/\w{5}\/((\w+\-)+)?(\w+)\//g)) {
+          this.updateReproductores({ info });
+        }
       }
     }
   },
   methods: {
     ...mapActions({
       updateReproductores: "todo/updateReproductores",
+      getReproductores: 'todo/getReproductores'
     })
   },
   created() {
