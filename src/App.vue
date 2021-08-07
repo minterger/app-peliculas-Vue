@@ -34,7 +34,7 @@ export default {
   *::-webkit-scrollbar-thumb {
     background-color: #5d616a;
     border-radius: 50px;
-    border: 3px solid #12161C;
+    border: 3px solid #151a21;
   }
   *::-webkit-scrollbar-thumb:hover {
     background-color: #4e535e
