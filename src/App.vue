@@ -27,14 +27,20 @@ export default {
   }
   
   *::-webkit-scrollbar {
-    width: 11px;
-    background-color: #12161C;
+    width: 12px;
+    background-color: #151a21;
   }
 
   *::-webkit-scrollbar-thumb {
-    background-color: #2A3A7E;
+    background-color: #5d616a;
     border-radius: 50px;
-    border: 2px solid #12161C;
+    border: 3px solid #12161C;
+  }
+  *::-webkit-scrollbar-thumb:hover {
+    background-color: #4e535e
+  }
+  *::-webkit-scrollbar-thumb:active {
+    background-color: #435ac0;
   }
 
 </style>
