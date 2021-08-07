@@ -26,19 +26,4 @@ export default {
     margin: 0;
   }
 
-  *::-webkit-scrollbar {
-    width: 11px;
-    background-color: #12161C;
-  }
-
-  *::-webkit-scrollbar-thumb {
-    background-color: #2A3A7E;
-    border-radius: 50px;
-    border: 2px solid #12161C;
-  }
-
-  *::-webkit-scrollbar-track {
-
-  }
-
 </style>
