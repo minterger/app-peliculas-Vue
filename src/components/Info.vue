@@ -103,8 +103,10 @@ export default {
 
   .bx {
     color: #ffe100;
+    font-weight: 600;
   }
   .raiting {
-    color: #72e9e9;
+    color: darkcyan;
+    font-weight: 500;
   }
 </style>

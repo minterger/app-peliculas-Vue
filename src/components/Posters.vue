@@ -45,7 +45,8 @@ export default {
     color: #ffe100;
   }
   .card-text {
-    color: #72e9e9;
+    color: darkcyan;
+
   }
 
   .card {
