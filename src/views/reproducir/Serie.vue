@@ -24,7 +24,7 @@ export default {
       'getTemporadas': 'todo/getTemporadas'
     }),
   },
-  created() {
+  mounted() {
     this.infoPoster({type: '/serie', info: this.$route.params.name})
     this.getTemporadas({type: '/serie', info: this.$route.params.name})
   }

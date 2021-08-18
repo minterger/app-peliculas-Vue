@@ -27,7 +27,7 @@ export default {
       'getReproductores': 'todo/getReproductores'
     })
   },
-  created() {
+  mounted() {
     this.infoPoster({type: '/anime', info: this.$route.params.name})
     this.getReproductores({type: '/anime', info: `${this.$route.params.name}/temporada/${this.$route.params.temp}/capitulo/${this.$route.params.cap}`})
   }

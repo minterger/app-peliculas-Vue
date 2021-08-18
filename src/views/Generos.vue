@@ -51,7 +51,7 @@ export default {
       }
     }
   },
-  created() {
+  mounted() {
     this.getPosters({type: this.$route.path, query: this.$route.query.page})
     document.title = `${process.env.VUE_APP_APP_TITLE} - Ver Genero ${this.type} de ${this.genero} Online en HD Latino`
     const descEl = document.querySelector('head meta[name="description"]');

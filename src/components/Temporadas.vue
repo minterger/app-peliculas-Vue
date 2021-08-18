@@ -43,7 +43,7 @@ export default {
       return []
     }
   },
-  created() {
+  mounted() {
     if (this.$route.hash) {
       this.active = this.$route.hash.replace('#temp', '')-1
     }

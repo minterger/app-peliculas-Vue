@@ -48,7 +48,7 @@ export default {
       }
     }
   },
-  created() {
+  mounted() {
     this.searchPoster({type: '/search' , searchQ: this.$route.query.s, pageQ: this.$route.query.page});
     document.title = `${process.env.VUE_APP_APP_TITLE} - Buscardor de Peliculas, Series y Animes`
   }

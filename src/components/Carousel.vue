@@ -67,7 +67,7 @@ export default {
   computed: {
     ...mapGetters({posterLast: 'todo/posterLastUploaded'})
   },
-  created() {
+  mounted() {
     this.getLastUploaded()
   }
 }

@@ -30,7 +30,7 @@ export default {
   computed: {
     ...mapGetters({'ifInfo': 'todo/ifInfo'})
   },
-  created() {
+  mounted() {
     this.infoPoster({type: '/pelicula', info: this.$route.params.name})
     this.getReproductores({type: '/pelicula/rep', info: this.$route.params.name})
   }

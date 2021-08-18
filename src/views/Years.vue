@@ -48,7 +48,7 @@ export default {
       }
     }
   },
-  created() {
+  mounted() {
     document.title = `${process.env.VUE_APP_APP_TITLE} - Ver ${this.type} Año ${this.$route.params.year} Online en HD Latino`
     this.getPosters({type: this.$route.path, query: this.$route.query.page})
     const descEl = document.querySelector('head meta[name="description"]');

@@ -85,7 +85,7 @@ export default {
       getReproductores: 'todo/getReproductores'
     })
   },
-  created() {
+  mounted() {
     if (this.$route.hash) {
       this.active = this.$route.hash.replace("#opc", "") - 1;
     }

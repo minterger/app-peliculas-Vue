@@ -144,7 +144,7 @@ export default {
       this.searching(this.searchQ);
     },
   },
-  created() {
+  mounted() {
     this.getGeneros();
     this.getYears();
   },

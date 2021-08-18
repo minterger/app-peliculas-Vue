@@ -41,7 +41,7 @@ export default {
       }
     }
   },
-  created() {
+  mounted() {
     if (this.$route.name == 'Home') {
       this.getPosters({type: '/estrenos'})
     } else {
