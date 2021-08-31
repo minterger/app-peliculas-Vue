@@ -46,5 +46,9 @@ body {
 *::-webkit-scrollbar-thumb:active {
   background-color: #435ac0;
 }
+* {
+  scrollbar-color: auto;
+  scrollbar-width: thin;
+}
 /*fin Scroll*/
 </style>
