@@ -94,7 +94,7 @@ export default {
   }
 
   strong {
-    color: lightcoral;
+    color: rgb(253, 76, 112);
   }
   a {
     text-decoration: none;
