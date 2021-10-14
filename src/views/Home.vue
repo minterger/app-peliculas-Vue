@@ -10,19 +10,24 @@
         to="/last"
         class="btn btn-primary my-1 mx-1">Subido Recientemente</router-link>
     </div>
+
+    <Loading/>
+
     <Posters />
   </div>
 </template>
 
 <script>
 import {mapActions} from 'vuex'
-import Posters from '@/components/Posters.vue'
+import Posters from '@/components/Posters.vue';
 import Carousel from "@/components/Carousel.vue";
+import Loading from "@/components/Loading.vue";
 
 export default {
   components: {
     Posters,
-    Carousel
+    Carousel,
+    Loading
   },
   methods: {
     ...mapActions({
