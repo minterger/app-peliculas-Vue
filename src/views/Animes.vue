@@ -12,6 +12,7 @@
         :to="{name: 'AnimesType', params: { type: 'populares' }}"
         class="btn btn-primary my-1 mx-1">Populares</router-link>
     </div>
+    <Loading/>
     <Posters />
     <Pagination />
   </div>
@@ -21,11 +22,13 @@
 import {mapActions} from 'vuex'
 import Pagination from '@/components/Pagination.vue'
 import Posters from '@/components/Posters.vue'
+import Loading from "@/components/Loading.vue";
 
 export default {
   components: {
     Pagination,
     Posters,
+    Loading
   },
   methods: {
     ...mapActions({
@@ -39,7 +42,12 @@ export default {
     }
   },
   watch: {
-    '$route'() {
+    '$route.path'() {
+      if (this.$route.name == 'Animes' || this.$route.name == 'AnimesType') {
+        this.getPosters({type: this.$route.path, query: this.$route.query.page})
+      }
+    },
+    '$route.query.page'() {
       if (this.$route.name == 'Animes' || this.$route.name == 'AnimesType') {
         this.getPagePosters({type: this.$route.path, query: this.$route.query.page})
       }

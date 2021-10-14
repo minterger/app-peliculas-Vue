@@ -1,6 +1,7 @@
 <template>
   <div class="container-md">
     <h1 class="text-center mt-3 mb-5">Buscador</h1>
+    <Loading/>
     <Posters v-if="noResults" />
     <div v-else class="text-center my-4">
       <h4>No se encontraron resultados</h4>
@@ -13,11 +14,14 @@
 import {mapActions, mapGetters} from 'vuex'
 import Posters from '@/components/Posters.vue'
 import PaginationSearch from '@/components/PaginationSearch.vue'
+import Loading from '@/components/Loading.vue'
+
 
 export default {
   components: {
     Posters,
-    PaginationSearch
+    PaginationSearch,
+    Loading
   },
   methods: {
     ...mapActions({
@@ -38,7 +42,12 @@ export default {
     }
   },
   watch : {
-    '$route'() {
+    '$route.query.s'() {
+      if (this.$route.name == 'Search') {
+        this.searchPoster({type: '/search' , searchQ: this.$route.query.s, pageQ: this.$route.query.page});
+      }
+    },
+    '$route.query.page'() {
       if (this.$route.name == 'Search') {
         this.searchPagePoster({
           type: this.$route.path,

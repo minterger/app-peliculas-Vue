@@ -3,6 +3,7 @@ import axios from "axios"
 export default {
   namespaced: true,
   state: {
+    loading: false,
     posters: [],
     pagination: {},
     info: {},
@@ -13,6 +14,7 @@ export default {
   },
   mutations: {
     updatePosters(state, data) {
+      state.loading = data ? false : true
       state.posters = data ? data.posters : []
       state.pagination = data ? data.pagination : {}
     },
@@ -34,9 +36,11 @@ export default {
       state.info = data || {}
     },
     updateReproductores(state, data) {
+      state.loading = data ? false : true
       state.reproductores = data || []
     },
     updateTemporadas(state, data) {
+      state.loading = data ? false : true
       state.temporadas = data || {}
     },
     updateStatusSearch(state, status) {
@@ -51,6 +55,7 @@ export default {
       commit('updatePosters')
       const page = query || 1
       const res = await axios.get(`${process.env.VUE_APP_API_URL}${type}?page=${page}`)
+
       commit('updatePosters', res.data)
     },
     async getPagePosters({commit}, {type,query}) {
@@ -90,6 +95,7 @@ export default {
       commit('updateReproductores', res.data)
     },
     async getTemporadas({commit}, {type, info}) {
+      commit('updateTemporadas')
       const res = await axios.get(`${process.env.VUE_APP_API_URL}${type}/temporadas/${info}`)
       commit('updateTemporadas', res.data)
     },
@@ -99,6 +105,7 @@ export default {
     }
   },
   getters: {
+    loading: state => state.loading,
     posters: state => state.posters,
     pagination: state => state.pagination,
     info: state => state.info,

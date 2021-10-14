@@ -1,6 +1,7 @@
 <template>
   <div class="container-md">
     <Info />
+    <Loading class="loading" />
     <Reproductores />
     <Comments />
     <Share />
@@ -13,13 +14,15 @@ import Info from '@/components/Info.vue'
 import Reproductores from '@/components/Reproductores.vue'
 import Comments from '@/components/Comments.vue'
 import Share from '@/components/Share.vue'
+import Loading from '@/components/Loading.vue'
 
 export default {
   components: {
     Info,
     Reproductores,
     Comments,
-    Share
+    Share,
+    Loading
   },
   methods: {
     ...mapActions({
@@ -33,3 +36,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.loading {
+  margin-top: 50px;
+}
+</style>

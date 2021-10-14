@@ -38,11 +38,11 @@ export default {
     }),
   },
   watch: {
-    '$route'() {
+    '$route.path'() {
       if (this.$route.name == 'Home') {
-        this.getPagePosters({type: '/estrenos'})
+        this.getPosters({type: '/estrenos'})
       } else if (this.$route.name == 'HomeLast') {
-        this.searchPagePoster({type: '/search'});
+        this.searchPoster({type: '/search'});
       }
     }
   },
