@@ -3,6 +3,7 @@ import axios from "axios"
 export default {
   namespaced: true,
   state: {
+    showCarousel: false,
     loading: false,
     loadingRepTemp: false,
     posters: [],
@@ -48,6 +49,7 @@ export default {
       state.statusSearch = status || false
     },
     updateLastUploaded(state, data) {
+      state.showCarousel = true
       state.posterLastUploaded = data
     }
   },
@@ -106,6 +108,7 @@ export default {
     }
   },
   getters: {
+    showCarousel: state => state.showCarousel,
     loading: state => state.loading,
     loadingRepTemp: state => state.loadingRepTemp,
     posters: state => state.posters,

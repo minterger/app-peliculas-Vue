@@ -1,5 +1,6 @@
 <template>
   <vueper-slides
+    v-show="showCarousel"
     class="no-shadow"
     :touchable="false"
     :visible-slides="4"
@@ -65,7 +66,7 @@ export default {
     }
   },
   computed: {
-    ...mapGetters({posterLast: 'todo/posterLastUploaded'})
+    ...mapGetters({posterLast: 'todo/posterLastUploaded', showCarousel: 'todo/showCarousel'})
   },
   mounted() {
     this.getLastUploaded()
