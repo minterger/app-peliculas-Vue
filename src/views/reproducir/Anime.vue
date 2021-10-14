@@ -1,7 +1,7 @@
 <template>
   <div class="container-md">
     <Info />
-    <Loading class="loading" />
+    <LoadingRepTemp />
     <Temporadas />
     <Share />
   </div>
@@ -12,14 +12,14 @@ import {mapActions} from 'vuex'
 import Info from '@/components/Info.vue'
 import Temporadas from '@/components/Temporadas.vue'
 import Share from '@/components/Share.vue'
-import Loading from '@/components/Loading.vue'
+import LoadingRepTemp from '@/components/LoadingRepTemp.vue'
 
 export default {
   components: {
     Info,
     Temporadas,
     Share,
-    Loading
+    LoadingRepTemp
   },
   methods: {
     ...mapActions({
@@ -33,9 +33,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.loading {
-  margin-top: 50px;
-}
-</style>

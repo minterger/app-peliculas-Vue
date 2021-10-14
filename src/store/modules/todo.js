@@ -4,6 +4,7 @@ export default {
   namespaced: true,
   state: {
     loading: false,
+    loadingRepTemp: false,
     posters: [],
     pagination: {},
     info: {},
@@ -36,11 +37,11 @@ export default {
       state.info = data || {}
     },
     updateReproductores(state, data) {
-      state.loading = data ? false : true
+      state.loadingRepTemp = data ? false : true
       state.reproductores = data || []
     },
     updateTemporadas(state, data) {
-      state.loading = data ? false : true
+      state.loadingRepTemp = data ? false : true
       state.temporadas = data || {}
     },
     updateStatusSearch(state, status) {
@@ -106,6 +107,7 @@ export default {
   },
   getters: {
     loading: state => state.loading,
+    loadingRepTemp: state => state.loadingRepTemp,
     posters: state => state.posters,
     pagination: state => state.pagination,
     info: state => state.info,

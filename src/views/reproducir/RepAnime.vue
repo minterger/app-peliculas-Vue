@@ -1,7 +1,7 @@
 <template>
   <div class="container-md">
     <Info />
-    <Loading class="loading" />
+    <LoadingRepTemp />
     <Reproductores />
     <Comments />
     <Share />
@@ -14,7 +14,7 @@ import Info from '@/components/Info.vue'
 import Reproductores from '@/components/Reproductores.vue'
 import Comments from '@/components/Comments.vue'
 import Share from '@/components/Share.vue'
-import Loading from '@/components/Loading.vue'
+import LoadingRepTemp from '@/components/LoadingRepTemp.vue'
 
 export default {
   components: {
@@ -22,7 +22,7 @@ export default {
     Reproductores,
     Comments,
     Share,
-    Loading
+    LoadingRepTemp
   },
   methods: {
     ...mapActions({
@@ -36,9 +36,3 @@ export default {
   }
 }
 </script>
-
-<style scoped>
-.loading {
-  margin-top: 50px;
-}
-</style>
