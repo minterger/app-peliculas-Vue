@@ -53,4 +53,36 @@ export default {
 
 <style scoped>
 
+.nav-tabs::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  background-color: #202630;
+}
+.nav-tabs::-webkit-scrollbar-corner {
+  background-color: #202630;
+}
+.nav-tabs::-webkit-scrollbar-thumb {
+  background-color: #5d616a;
+  border-radius: 50px;
+  border: 3px solid #202630;
+}
+.nav-tabs::-webkit-scrollbar-thumb:hover {
+  background-color: #4e535e;
+}
+.nav-tabs::-webkit-scrollbar-thumb:active {
+  background-color: #435ac0;
+}
+
+.nav-tabs {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.nav-item {
+  white-space: nowrap;
+  overflow: none
+}
+
 </style>

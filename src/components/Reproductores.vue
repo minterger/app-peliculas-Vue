@@ -99,4 +99,35 @@ export default {
     transform: scale(1.05);
   }
 }
+
+.nav-pills::-webkit-scrollbar {
+  width: 12px;
+  height: 12px;
+  background-color: #202630;
+}
+.nav-pills::-webkit-scrollbar-corner {
+  background-color: #202630;
+}
+.nav-pills::-webkit-scrollbar-thumb {
+  background-color: #5d616a;
+  border-radius: 50px;
+  border: 3px solid #202630;
+}
+.nav-pills::-webkit-scrollbar-thumb:hover {
+  background-color: #4e535e;
+}
+.nav-pills::-webkit-scrollbar-thumb:active {
+  background-color: #435ac0;
+}
+
+.nav-pills {
+  display: flex;
+  flex-wrap: nowrap;
+  overflow-y: hidden;
+  overflow-x: auto;
+}
+
+.nav-item {
+  white-space: nowrap;
+}
 </style>
