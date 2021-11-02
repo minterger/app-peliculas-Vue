@@ -94,7 +94,7 @@
             </div>
           </li>
         </ul>
-        <form @submit.prevent="[searchs(search)]" class="d-flex">
+        <form @submit.prevent="searchs(search)" class="d-flex">
           <input
             class="form-control me-1 me-sm-2"
             type="text"
