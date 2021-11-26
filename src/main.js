@@ -6,6 +6,14 @@ import vueDisqus from "vue-disqus";
 import { createMetaManager, plugin as vueMetaPlugin } from 'vue-meta'
 import { Lazyload } from '@vant/lazyload'
 
+//import mycss
+import './assets/mycss/styles.css'
+
+//import myjs
+import './assets/myjs/bootstrap.bundle.min.js'
+
+//import boxicon font
+import 'boxicons/css/boxicons.min.css'
 
 const lazyOptions = {
   preLoad: 2,

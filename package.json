@@ -9,6 +9,7 @@
   "dependencies": {
     "@vant/lazyload": "^1.2.0",
     "axios": "^0.21.1",
+    "boxicons": "^2.0.9",
     "core-js": "^3.15.2",
     "vue": "^3.1.4",
     "vue-disqus": "^5.1.0",
