@@ -70,7 +70,9 @@ export default {
   },
   watch: {
     "$route.hash"() {
-      this.active = parseInt(this.$route.hash.replace("#opc", "")) - 1 || 0;
+      this.active = this.$route.hash
+        ? parseInt(this.$route.hash.replace("#opc", "")) - 1
+        : 0;
     },
     "$route.path"() {
       const info = this.$route.path;
@@ -94,9 +96,7 @@ export default {
   },
   mounted() {
     if (this.$route.hash) {
-      this.active = this.$route.hash
-        ? this.$route.hash.replace("#opc", "") - 1
-        : 0;
+      this.active = this.$route.hash.replace("#opc", "") - 1;
     }
   },
 };
