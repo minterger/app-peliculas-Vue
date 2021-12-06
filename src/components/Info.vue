@@ -84,6 +84,7 @@ export default {
 <style scoped>
   img {
     width: 245px;
+    min-height: 200px;
   }
   .col-img {
     min-height: 360px;
@@ -108,5 +109,12 @@ export default {
   .raiting {
     color: darkcyan;
     font-weight: 500;
+  }
+
+  /* media queries */
+  @media screen and (max-width: 575.98px) {
+    img {
+      min-height: 150px;
+    }
   }
 </style>

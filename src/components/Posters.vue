@@ -57,6 +57,10 @@ export default {
     font-size: 1.09em;
   }
 
+  .card-img-top {
+    min-height: 200px;
+  }
+
   .type {
     position: absolute;
     top: 5px;
@@ -68,5 +72,12 @@ export default {
   }
   .type span {
     color: #fff;
+  }
+
+  /* media queries screen max width */
+  @media screen and (max-width: 575.98px) {
+    .card-img-top {
+      min-height: 150px;
+    }
   }
 </style>
